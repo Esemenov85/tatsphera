@@ -1,29 +1,96 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Card :hover spotlight effect with background-attachment 🤙</title>
-  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
-<link rel="stylesheet" href="/tatsphera/style.css">
-
+    <meta charset="UTF-8">
+    <title>Дэшборды</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        img {
+            width: 50%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block; /* для отображения картинок на все разрешениях экрана */
+        }
+        
+        @media (max-width: 768px) { /* Для tablets и смартфонов */
+            img {
+                width: 100%; /* расширение наtabletках и смартфонах */
+            }
+        }
+        
+        @media (max-width: 480px) { /* Для smartfonov s razmerom ekrama nizhe 480 pikselyi */
+            img {
+                width: 90%; /* уменьшение размера картинок для smartfonov s menshim razmerom */
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<main>
-  <ul>
-    <li class="card"><span>1</span></li>
-    <li class="card"><span>2</span></li>
-    <li class="card"><span>3</span></li>
-    <li class="card"><span>4</span></li>
-    <li class="card"><span>5</span></li>
-    <li class="card"><span>6</span></li>
-    <li class="card"><span>7</span></li>
-    <li class="card"><span>8</span></li>
-    <li class="card"><span>9</span></li>
-  </ul>
-</main>
-<!-- partial -->
-  <script  src="/tatsphera/script.js"></script>
+    <div class="container">
+        <h1>Фабрика данных</h1>
+        <a href="https://index.tatarstan.ru" target="_blank" rel="noopener noreferrer">
+            <img src="/my_site/images/logo_UG_new.png" 
+                /*onclick="openInNewTab(event.target.href)"*/
+                alt="Работает на Татсфере" 
+                border="5px" 
+                style="width:96px;height:96px;">
+        </a>
+        <div class="tabs">
+            <button class="tab active" id="about-tab">О себе</button>
+            <button class="tab" id="contact-tab">Контакты</button>
+            <button class="tab" id="atp-tab">Примеры</button>
+        </div>
+    </div>
+    <script>
+        const aboutTab = document.getElementById('about-tab');
+        const contactTab = document.getElementById('contact-tab');
+        const atpTab = document.getElementById('atp-tab');
 
+        aboutTab.addEventListener('click', () => {
+            location.href = 'about';
+        });
+
+        contactTab.addEventListener('click', () => {
+            location.href = 'contact';
+        });
+
+        atpTab.addEventListener('click', () => {
+            location.href = 'atp';
+        });
+    </script>
+    <h2>Примеры работ</h2>
+    <a href="https://index.tatarstan.ru/atp/dashboard/53/" target="_blank" rel="noopener noreferrer">
+        <img src="/my_site/images/52_category.png" 
+            alt="Мониторинг розничной торговли" 
+            style="width:198px;height:198px;">
+    </a>
+    <a href="https://index.tatarstan.ru/atp/dashboard/11/" target="_blank" rel="noopener noreferrer">
+        <img src="/my_site/images/atp.png" 
+            alt="Аналитика товарных потоков" 
+            style="width:198px;height:198px;">
+    </a>
+    <a href="https://index.tatarstan.ru/atp/dashboard/27/" target="_blank" rel="noopener noreferrer">
+        <img src="/my_site/images/zhkh.png" 
+            alt="Инспектор задолженностей ЖКХ" 
+            style="width:198px;height:198px;">
+    </a>
+    <a href="https://index.tatarstan.ru/atp/dashboard/analitica_nk/" target="_blank" rel="noopener noreferrer">
+        <img src="/my_site/images/map_nk.png" 
+            alt="Аналитика народного контроля" 
+            style="width:198px;height:198px;">
+    </a>
+
+<!--     <iframe
+      width="600"
+      height="400"
+      seamless
+      frameBorder="0"
+      src="https://index.tatarstan.ru/atp/dashboard/ser/?native_filters_key=Z-E8aLyzX9jT-0_kCtJpVQg11HkxI7AE4D-eg2KEJ8zC6cqYqOVZqDXsn9dL-WLb&standalone=2&height=400">
+    </iframe> -->
 </body>
 </html>
