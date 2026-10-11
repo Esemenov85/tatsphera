@@ -393,6 +393,15 @@
   .chart .value { font-family: var(--font-mono); font-size: 15px; font-weight: 700; fill: var(--ink); }
   .acc-strong { color: var(--c-accent1); }
   .slide--invert .acc-strong { color: var(--c-accent2); }
+
+  a.deck-link {
+    color: var(--c-accent2);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(240, 225, 0, 0.45);
+    transition: border-color 160ms ease, opacity 160ms ease;
+  }
+  a.deck-link:hover { border-bottom-color: var(--c-accent2); opacity: 0.85; }
   .chart .grid { stroke: var(--rule); stroke-width: 1; }
   .chart .axis { stroke: var(--rule-strong); stroke-width: 1; }
   .legend { display: flex; gap: clamp(16px, 3vw, 40px); font-size: clamp(13px, 1.5vw, 18px); }
@@ -2050,9 +2059,9 @@
       <p class="slide__label in">Рабочие ссылки</p>
       <h2 class="slide__display in">«<span class="acc-strong">Татсфера</span>»&nbsp;— учебные компоненты</h2>
       <p class="slide__subtitle in">
-        Дата-лаборатория&nbsp;— https://edu-dlab.tatarstan.ru<br>
-        Конструктор отчётов&nbsp;— https://edu-index.tatarstan.ru<br>
-        Браузер файлов&nbsp;— https://edu-files.tatarstan.ru
+        <a class="deck-link" href="https://edu-dlab.tatarstan.ru" target="_blank" rel="noopener noreferrer">Дата-лаборатория&nbsp;— edu-dlab.tatarstan.ru</a><br>
+        <a class="deck-link" href="https://edu-index.tatarstan.ru" target="_blank" rel="noopener noreferrer">Конструктор отчётов&nbsp;— edu-index.tatarstan.ru</a><br>
+        <a class="deck-link" href="https://edu-files.tatarstan.ru" target="_blank" rel="noopener noreferrer">Браузер файлов&nbsp;— edu-files.tatarstan.ru</a>
       </p>
     </div>
     <div class="slide__foot">Стажировочная площадка «Управление на основе больших данных» · КФУ · ЦЦТ РТ · 12–13 октября 2026 г.</div>
