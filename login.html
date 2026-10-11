@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вход · Татсфера — стажировочная площадка 2026</title>
+
+<!-- ============================================================
+     SUPABASE SDK — подключение через CDN (публичный, менять не нужно)
+     ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-display: "Unbounded", Georgia, "Times New Roman", serif;
+    --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+
+    --main:      #0B3C49;
+    --bg:        #CBD2D0;
+    --text:      #6A8D92;
+    --accent1:   #731963;
+    --accent2:   #F0E100;
+    --card:      #ffffff;
+    --border:    rgba(106, 141, 146, 0.12);
+    --border-strong: rgba(106, 141, 146, 0.25);
+    --shadow:    rgba(11, 60, 73, 0.07);
+    --shadow-hover: rgba(11, 60, 73, 0.14);
+    --input-bg:  #CBD2D0;
+    --input-text:#0B3C49;
+  }
+  [data-theme="dark"] {
+    --main:      #F0E100;
+    --bg:        #0B3C49;
+    --text:      #8fa8ad;
+    --accent1:   #C43FAF;
+    --accent2:   #F0E100;
+    --card:      #124a5a;
+    --border:    rgba(203, 210, 208, 0.14);
+    --border-strong: rgba(203, 210, 208, 0.3);
+    --shadow:    rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.55);
+    --input-bg:  #0d3b47;
+    --input-text:#CBD2D0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -20%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(240, 225, 0, 0.18), transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%; left: -10%;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(115, 25, 99, 0.14), transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .login-card {
+    position: relative;
+    z-index: 1;
+    background: var(--card);
+    border-radius: 24px;
+    padding: 2.5rem 2rem 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 24px 48px var(--shadow-hover);
+    border: 1px solid var(--border);
+    animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .login-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--main);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .login-logo-mark {
+    width: 46px; height: 46px;
+    background: var(--accent2);
+    border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    color: #0B3C49;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(240, 225, 0, 0.3);
+  }
+
+  .login-sub {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+  }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .field input {
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    outline: none;
+    transition: 0.2s;
+  }
+  .field input::placeholder { color: var(--text); opacity: 0.6; }
+  .field input:focus {
+    border-color: var(--main);
+    box-shadow: 0 0 0 3px rgba(11, 60, 73, 0.12);
+  }
+  [data-theme="dark"] .field input:focus {
+    border-color: var(--accent2);
+    box-shadow: 0 0 0 3px rgba(240, 225, 0, 0.15);
+  }
+
+  .field-password { position: relative; }
+  .field-password input { padding-right: 3rem; }
+  .toggle-password {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+  .toggle-password:hover { opacity: 1; }
+
+  .row-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -0.25rem 0 1.25rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 600;
+    user-select: none;
+  }
+  .checkbox input {
+    appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 6px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--input-bg);
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+    flex-shrink: 0;
+  }
+  .checkbox input:checked {
+    background: var(--accent2);
+    border-color: var(--accent2);
+  }
+  .checkbox input:checked::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 900;
+    color: #0B3C49;
+  }
+
+  .forgot-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent1);
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .forgot-link:hover { text-decoration: underline; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.95rem;
+    border-radius: 12px;
+    border: none;
+    background: var(--accent2);
+    color: #0B3C49;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+    box-shadow: 0 6px 18px rgba(240, 225, 0, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    letter-spacing: 0.01em;
+  }
+  .btn-submit:hover {
+    background: #ffe600;
+    box-shadow: 0 8px 22px rgba(240, 225, 0, 0.5);
+    transform: translateY(-1px);
+  }
+  .btn-submit:active { transform: translateY(0) scale(0.98); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .btn-submit__spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(11, 60, 73, 0.3);
+    border-top-color: #0B3C49;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+  }
+  .btn-submit.loading .btn-submit__spinner { display: inline-block; }
+  .btn-submit.loading .btn-submit__text { opacity: 0.7; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error {
+    color: var(--accent1);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 0.9rem;
+    min-height: 1.2em;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+  .error--success { color: var(--main); }
+
+  .hint {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .hint b { color: var(--main); font-weight: 800; }
+
+  .theme-btn {
+    position: fixed;
+    top: 1rem; right: 1rem;
+    z-index: 10;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1.5px solid var(--border-strong);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  .theme-btn:hover { border-color: var(--accent2); transform: scale(1.05); }
+
+  @media (max-width: 480px) {
+    .login-card { padding: 2rem 1.5rem 1.5rem; border-radius: 20px; }
+    .login-logo { font-size: 1.2rem; }
+    .login-logo-mark { width: 42px; height: 42px; font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Переключить тему">🌙</button>
+
+  <form class="login-card" onsubmit="event.preventDefault(); doLogin();" autocomplete="on">
+    <div class="login-logo">
+      <span class="login-logo-mark">ТС</span>
+      <span>Татсфера</span>
+    </div>
+    <div class="login-sub">Войдите, чтобы открыть презентацию стажировочной площадки</div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        autocomplete="username"
+        required
+      >
+    </div>
+
+    <div class="field field-password">
+      <label for="password">Пароль</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="••••••••"
+        autocomplete="current-password"
+        required
+      >
+      <button
+        type="button"
+        class="toggle-password"
+        onclick="togglePasswordVisibility()"
+        aria-label="Показать пароль"
+        id="togglePassBtn"
+      >👁️</button>
+    </div>
+
+    <div class="row-options">
+      <label class="checkbox">
+        <input type="checkbox" id="remember" checked>
+        <span>Запомнить меня</span>
+      </label>
+      <a href="#" class="forgot-link" onclick="event.preventDefault(); doResetPassword();">
+        Забыли пароль?
+      </a>
+    </div>
+
+    <button type="submit" class="btn-submit" id="submitBtn">
+      <span class="btn-submit__spinner"></span>
+      <span class="btn-submit__text">Войти</span>
+    </button>
+
+    <div class="error" id="error" role="alert"></div>
+
+    <div class="hint">
+      Доступ — по учётной записи организаторов площадки.<br>
+      Нужен доступ? Напишите в <b>приватный чат</b> стаж-площадки УОБД.
+    </div>
+  </form>
+
+  <script>
+    /* ============================================================
+       ★★★ КОНФИГУРАЦИЯ SUPABASE ★★★
+       Project URL и anon public key из Supabase → Project Settings → API
+       ============================================================ */
+    const SUPABASE_URL      = 'https://tbqbexcxukbmdkccvjld.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRicWJleGN4dWtibWRrY2N2amxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NDAyMjUsImV4cCI6MjEwNzMxNjIyNX0.voJvUKtEzsNdxmewefQtJrE5k08AxPoZZOr7JKko7Zw';
+
+    const { createClient } = supabase;
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const DECK_URL  = 'deck.html';
+    const THEME_KEY = 'tatsphera-theme';
+    const USER_KEY  = 'tatsphera-user';
+
+    /* ============================================================
+       ТЁМНАЯ ТЕМА
+       ============================================================ */
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeBtn').textContent = '☀️';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        document.getElementById('themeBtn').textContent = '🌙';
+      }
+    }
+    function toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      try { localStorage.setItem(THEME_KEY, newTheme); } catch (e) {}
+    }
+    function initTheme() {
+      let saved = null;
+      try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+      if (saved === 'dark') applyTheme('dark');
+      else if (saved === 'light') applyTheme('light');
+      else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+      }
+    }
+
+    /* ============================================================
+       ПОКАЗ / СКРЫТИЕ ПАРОЛЯ
+       ============================================================ */
+    function togglePasswordVisibility() {
+      const input = document.getElementById('password');
+      const btn = document.getElementById('togglePassBtn');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🙈';
+        btn.setAttribute('aria-label', 'Скрыть пароль');
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁️';
+        btn.setAttribute('aria-label', 'Показать пароль');
+      }
+    }
+
+    /* ============================================================
+       АВТОРИЗАЦИЯ ЧЕРЕЗ SUPABASE
+       ============================================================ */
+    async function doLogin() {
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const err      = document.getElementById('error');
+      const btn      = document.getElementById('submitBtn');
+      const btnText  = btn.querySelector('.btn-submit__text');
+
+      err.textContent = '';
+      err.classList.remove('error--success');
+
+      if (!email || !password) {
+        err.textContent = 'Заполните оба поля';
+        return;
+      }
+
+      btn.classList.add('loading');
+      btnText.textContent = 'Входим…';
+      btn.disabled = true;
+
+      // Реальная проверка логина и пароля на серверах Supabase
+      const { error } = await sb.auth.signInWithPassword({ email: email, password: password });
+
+      if (error) {
+        btn.classList.remove('loading');
+        btnText.textContent = 'Войти';
+        btn.disabled = false;
+
+        if (error.message.includes('Invalid login credentials')) {
+          err.textContent = 'Неверный email или пароль';
+        } else if (error.message.includes('Email not confirmed')) {
+          err.textContent = 'Email не подтверждён. Проверьте почту.';
+        } else {
+          err.textContent = 'Ошибка входа: ' + error.message;
+        }
+        console.error('Supabase login error:', error);
+        return;
+      }
+
+      // Успех — сессию SDK сохраняет в localStorage автоматически
+      try {
+        localStorage.setItem(USER_KEY, email);
+        if (document.getElementById('remember').checked) {
+          localStorage.setItem('tatsphera-remember', '1');
+        } else {
+          localStorage.removeItem('tatsphera-remember');
+        }
+      } catch (e) {}
+
+      btnText.textContent = 'Готово!';
+      setTimeout(function () {
+        window.location.replace(DECK_URL);
+      }, 300);
+    }
+
+    /* ============================================================
+       ВОССТАНОВЛЕНИЕ ПАРОЛЯ
+       ============================================================ */
+    async function doResetPassword() {
+      const email = document.getElementById('email').value.trim();
+      const err   = document.getElementById('error');
+
+      if (!email) {
+        err.textContent = 'Введите email, и мы отправим ссылку для сброса';
+        return;
+      }
+
+      err.textContent = 'Отправляем…';
+      err.classList.remove('error--success');
+
+      const { error } = await sb.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/login.html',
+      });
+
+      if (error) {
+        err.textContent = 'Не удалось отправить письмо: ' + error.message;
+        return;
+      }
+      err.textContent = 'Письмо отправлено. Проверьте почту.';
+      err.classList.add('error--success');
+    }
+
+    /* ============================================================
+       ИНИЦИАЛИЗАЦИЯ
+       ============================================================ */
+    document.addEventListener('DOMContentLoaded', async function () {
+      initTheme();
+      document.getElementById('email').focus();
+
+      // Если сессия уже есть — сразу в презентацию
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) {
+        window.location.replace(DECK_URL);
+        return;
+      }
+
+      // Автоподстановка email, сохранённого с прошлого раза
+      let savedUser = null;
+      try { savedUser = localStorage.getItem(USER_KEY); } catch (e) {}
+      if (savedUser) {
+        document.getElementById('email').value = savedUser;
+        document.getElementById('password').focus();
+      }
+
+      // Enter в поле email переводит фокус на пароль
+      document.getElementById('email').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          document.getElementById('password').focus();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
