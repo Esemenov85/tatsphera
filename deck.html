@@ -26,12 +26,44 @@
       sb.auth.getSession().then(function (res) {
         if (res && res.data && res.data.session) {
           document.documentElement.classList.remove('auth-guard');
+          startIdle();
         } else {
           window.location.replace('login.html');
         }
       }).catch(function () {
         window.location.replace('login.html');
       });
+
+      // ============================================================
+      // АВТОВЫХОД ПРИ ПРОСТОЕ
+      // Нет активности 2 минуты → signOut + возврат на login.html.
+      // Любое действие пользователя сбрасывает таймер.
+      // ============================================================
+      var IDLE_MS = 2 * 60 * 1000;
+      var idleTimer = null;
+
+      function idleLogout() {
+        try {
+          sb.auth.signOut().then(function () {
+            window.location.replace('login.html');
+          }).catch(function () {
+            window.location.replace('login.html');
+          });
+        } catch (e) {
+          window.location.replace('login.html');
+        }
+      }
+      function resetIdle() {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(idleLogout, IDLE_MS);
+      }
+      function startIdle() {
+        ['mousemove', 'mousedown', 'pointerdown', 'keydown', 'wheel', 'scroll', 'touchstart', 'click']
+          .forEach(function (ev) {
+            document.addEventListener(ev, resetIdle, { passive: true, capture: true });
+          });
+        resetIdle();
+      }
     } catch (e) {
       window.location.replace('login.html');
     }
