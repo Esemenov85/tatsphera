@@ -2135,597 +2135,598 @@
   </section>
   <!-- /slide: s35 -->
 
-  <!-- slide: s36 type=divider -->
+    <!-- slide: s36 type=divider -->
   <section class="slide slide--divider slide--accent1">
-    <div class="slide__head">
-      <p class="slide__label in">Раздел 05 · 2 день · 09:00–15:00</p>
-      <h2 class="slide__display in">Практический квест</h2>
-      <p class="slide__subtitle in">Билеты с&nbsp;индивидуальным заданием с&nbsp;опорой на&nbsp;пройденный материал · 8&nbsp;ак.ч. практики</p>
-    </div>
-    <div class="slide__number">05</div>
+  <div class="slide__head">
+  <p class="slide__label in">Раздел 05 · 2 день · 09:00–15:00</p>
+  <h2 class="slide__display in">Практический квест</h2>
+  <p class="slide__subtitle in">Задание с&nbsp;опорой на&nbsp;пройденный материал · 8&nbsp;ак.ч. практики</p>
+  </div>
+  <div class="slide__number">05</div>
   </section>
   <!-- /slide: s36 -->
 
   <!-- slide: s37 type=split -->
   <section class="slide slide--split">
-    <div class="slide__panels">
-      <div class="slide__panel">
-        <p class="slide__label in">Команда 1</p>
-        <h3 class="slide__heading in">Орган исполнительной власти</h3>
-        <p class="slide__text in">Решает билет от&nbsp;лица ОГВ: сбор, подготовка и&nbsp;анализ данных на&nbsp;платформе Фабрика данных.</p>
-      </div>
-      <div class="slide__panel slide__panel--invert">
-        <p class="slide__label in">Команда 2</p>
-        <h3 class="slide__heading in">Исполнительный комитет</h3>
-        <p class="slide__text in">Решает билет от&nbsp;лица исполкома: загрузка данных, SQL-запросы, построение отчётов.</p>
-      </div>
-    </div>
+  <div class="slide__panels">
+  <div class="slide__panel">
+  <p class="slide__label in">Команда 1</p>
+  <h3 class="slide__heading in">Орган исполнительной власти</h3>
+  <p class="slide__text in">Решает задачу от&nbsp;лица ОГВ: сбор, подготовка и&nbsp;анализ данных на&nbsp;платформе Фабрика данных.</p>
+  </div>
+  <div class="slide__panel slide__panel--invert">
+  <p class="slide__label in">Команда 2</p>
+  <h3 class="slide__heading in">Исполнитель (разработчик)</h3>
+  <p class="slide__text in">Решает задачу от&nbsp;лица разработчика: анализ технического задания, разработка панелей согласно требованиям заказчика.</p>
+  </div>
+  </div>
   </section>
   <!-- /slide: s37 -->
 
   <!-- slide: s38 type=content -->
   <section class="slide slide--content">
-    <div class="slide__head">
-      <p class="slide__label in">Примеры заданий из обучающего материала</p>
-      <h2 class="slide__heading in">Так выглядит билет на&nbsp;практике</h2>
-    </div>
-    <div class="slide__main">
-      <ul class="slide__bullets">
-        <li class="in"><span class="mark1">«Народный контроль»</span>&nbsp;— создать отдельную папку, залить таблицы, проверить корректность данных</li>
-        <li class="in"><span class="mark1">«Открытый Татарстан»</span>&nbsp;— взять средние потребительские цены на&nbsp;продовольствие по&nbsp;регионам ПФО за&nbsp;первые 2&nbsp;недели августа 2022&nbsp;года, загрузить, привести в&nbsp;надлежащий вид</li>
-        <li class="in"><span class="mark1">Дэшборд</span>&nbsp;— по&nbsp;подготовленным данным построить графики и&nbsp;собрать интерактивную отчётную форму</li>
-      </ul>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Примеры заданий из обучающего материала</p>
+  <h2 class="slide__heading in">Задачи: как собрать дашборд</h2>
+  </div>
+  <div class="slide__main">
+  <ul class="slide__bullets">
+  <li class="in"><span class="mark1">1. Проанализировать</span>&nbsp;— папки open_tatarstan, narod_kontrol, okved в&nbsp;Браузере файлов на&nbsp;предмет наличия данных</li>
+  <li class="in"><span class="mark1">2. Разработать концепцию</span>&nbsp;— на&nbsp;основе анализа разработать концепцию Информационной панели</li>
+  <li class="in"><span class="mark1">3. Передать исполнителю</span>&nbsp;— технические требования на&nbsp;разработку</li>
+  </ul>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
   <!-- /slide: s38 -->
 
-  <!-- slide: q1 type=title -->
+  <!-- slide: s38n type=dash -->
+  <section class="slide slide--dash">
+  <div class="slide__head">
+  <p class="slide__label in">Примеры заданий из обучающего материала</p>
+  <h2 class="slide__heading in">Прототип информационной панели</h2>
+  </div>
+  <div class="slide__main">
+  <div class="db in">
+  <div class="db__filters">
+  <span class="db__filter">Регион: <b>Республика Татарстан</b></span>
+  <span class="db__filter">Период: <b>01.08–04.09.2022</b></span>
+  <span class="db__filter">Датасет: <b>d_prices_pfo_long</b></span>
+  <span class="db__apply">Применить фильтры</span>
+  </div>
+  <div class="db__grid">
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · хлеб ржаной, РТ</p>
+  <div class="db__num">59,84&nbsp;₽</div>
+  <p class="db__delta db__delta--up">59,65 → 60,12&nbsp;₽ за&nbsp;5&nbsp;недель</p>
+  <p class="db__src">d_prices_pfo_long: AVG(price), Татарстан</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · средний чек, ОКВЭД</p>
+  <div class="db__num">913&nbsp;₽</div>
+  <p class="db__delta">медиана по отраслям</p>
+  <p class="db__src">d_okved_rt: медиана avg_check по отраслям</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · население районов</p>
+  <div class="db__num">2,10&nbsp;млн</div>
+  <p class="db__delta">46 районов, 2021</p>
+  <p class="db__src">narod_kontrol.municipalitets_chislennost: SUM(count)</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Time-series Chart · цена хлеба по неделям</p>
+  <svg class="db__svg" viewBox="0 0 300 96" preserveAspectRatio="none">
+  <polyline class="db__area" points="0,52 60,57 120,55 180,50 240,44 300,41 300,96 0,96"/>
+  <polyline class="db__line" points="0,52 60,57 120,55 180,50 240,44 300,41"/>
+  <circle class="db__dot" cx="0" cy="52" r="3"/><circle class="db__dot" cx="60" cy="57" r="3"/>
+  <circle class="db__dot" cx="120" cy="55" r="3"/><circle class="db__dot" cx="180" cy="50" r="3"/>
+  <circle class="db__dot" cx="240" cy="44" r="3"/><circle class="db__dot" cx="300" cy="41" r="3"/>
+  </svg>
+  <p class="db__axis">01.08 · 08.08 · 15.08 · 22.08 · 29.08 · 04.09 · ₽/кг</p>
+  <p class="db__src">d_prices_pfo_long: avg по неделям, товар «Хлеб ржаной»</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Bar Chart · топ-6 ОКВЭД, выручка РТ</p>
+  <div class="db__bars">
+  <div class="db__bar"><span>Розница: продукты</span><i style="width:100%"></i><em>452&nbsp;млн</em></div>
+  <div class="db__bar"><span>Авиаперевозки</span><i style="width:92%"></i><em>416&nbsp;млн</em></div>
+  <div class="db__bar"><span>Розница: прочая</span><i style="width:86%"></i><em>390&nbsp;млн</em></div>
+  <div class="db__bar"><span>Общепит</span><i style="width:49%"></i><em>220&nbsp;млн</em></div>
+  <div class="db__bar"><span>Автотрейд</span><i style="width:48%"></i><em>216&nbsp;млн</em></div>
+  <div class="db__bar"><span>Опт: топливо</span><i style="width:29%"></i><em>130&nbsp;млн</em></div>
+  </div>
+  <p class="db__src">d_okved_top10: revenue, без «Итого» и 0.0.0</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Table · разброс цен, РТ, 5 недель</p>
+  <table class="db__table">
+  <thead><tr><th>Товар</th><th>сред</th><th>min–max</th></tr></thead>
+  <tbody>
+  <tr><td>Хлеб ржаной</td><td>59,84</td><td>59,65–60,12</td></tr>
+  <tr><td>Молоко 2,5–3,2&nbsp;%</td><td>62,26</td><td>61,55–62,51</td></tr>
+  <tr><td>Рис шлифованный</td><td>97,34</td><td>96,15–98,43</td></tr>
+  <tr><td>Говядина</td><td>485,05</td><td>483,69–486,36</td></tr>
+  <tr><td>Масло сливочное</td><td>670,12</td><td>667,69–672,59</td></tr>
+  </tbody>
+  </table>
+  <p class="db__src">d_prices_summary: min / avg / max по товару</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Pie Chart · молоко по районам, т, 2021</p>
+  <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
+  <circle class="db__ring" cx="21" cy="21" r="15.9"/>
+  <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="57 43" stroke-dashoffset="25"/>
+  <circle class="db__seg db__seg--2" cx="21" cy="21" r="15.9" stroke-dasharray="28 72" stroke-dashoffset="-32"/>
+  <text class="db__donutnum" x="21" y="23">515&nbsp;т</text>
+  </svg>
+  <p class="db__axis">Кукморский&nbsp;149 · Балтасинский&nbsp;144 · Атнинский&nbsp;118 · Сабинский&nbsp;103 · Актанышский&nbsp;101</p>
+  <p class="db__src">d_nk_per_capita + d_nk_geo: volume, 2021</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </section>
+  <!-- /slide: s38n -->
+
+
+  <!-- slide: s38a type=title -->
   <section class="slide slide--title slide--invert">
-    <div class="slide__head">
-      <p class="slide__label in">Управление на основе больших данных · стажировочная площадка 2026</p>
-      <h1 class="slide__display in">SQL-датасеты для&nbsp;дашбордов</h1>
-      <p class="slide__subtitle in">Дополнение к&nbsp;разделу 05 «Практический квест» · заготовки запросов для&nbsp;команд</p>
-    </div>
+  <div class="slide__head">
+  <p class="slide__label in">Управление на основе больших данных · стажировочная площадка 2026</p>
+  <h1 class="slide__display in">SQL-датасеты для&nbsp;дашбордов</h1>
+  <p class="slide__subtitle in">Дополнение к&nbsp;разделу 05 «Практический квест» · заготовки запросов для&nbsp;команд</p>
+  </div>
   </section>
-  <!-- /slide: q1 -->
+  <!-- /slide: s38a -->
 
-  <!-- slide: q2 type=content -->
+  <!-- slide: s38b type=content -->
   <section class="slide slide--content">
-    <div class="slide__head">
-      <p class="slide__label in">Инструмент · платформа «Татсфера»</p>
-      <h2 class="slide__heading in">Датасеты строит Дата-лаборатория</h2>
-    </div>
-    <div class="slide__main">
-      <ul class="slide__bullets">
-        <li class="in">В&nbsp;Татсфере SQL-слой работает на&nbsp;базе компонента <span class="mark1">Дата-лаборатория</span>, где датасеты создаются как <span class="mark1">виртуальные представления</span> поверх файлов, без&nbsp;копирования данных</li>
-        <li class="in">Запросы пишутся на&nbsp;стандартном SQL: SELECT, JOIN, GROUP BY, UNION&nbsp;ALL — всё&nbsp;из&nbsp;лекционного блока применимо напрямую</li>
-        <li class="in">Федеративные запросы: один датасет может соединять источники из&nbsp;разных папок Браузера файлов</li>
-        <li class="in">Готовый датасет виден в&nbsp;Конструкторе отчётов как источник для&nbsp;виджетов и&nbsp;дашборда</li>
-      </ul>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Инструмент · платформа «Татсфера»</p>
+  <h2 class="slide__heading in">Датасеты строит Дата-лаборатория</h2>
+  </div>
+  <div class="slide__main">
+  <ul class="slide__bullets">
+  <li class="in">В&nbsp;Татсфере SQL-слой работает на&nbsp;базе компонента <span class="mark1">Дата-лаборатория</span>, где датасеты создаются как <span class="mark1">виртуальные представления</span> поверх файлов, без&nbsp;копирования данных</li>
+  <li class="in">Запросы пишутся на&nbsp;стандартном SQL: SELECT, JOIN, GROUP BY, UNION&nbsp;ALL — всё&nbsp;из&nbsp;лекционного блока применимо напрямую</li>
+  <li class="in">Федеративные запросы: один датасет может соединять источники из&nbsp;разных папок Браузера файлов</li>
+  <li class="in">Готовый датасет виден в&nbsp;Конструкторе отчётов как источник для&nbsp;виджетов и&nbsp;дашборда</li>
+  </ul>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q2 -->
+  <!-- /slide: s38b -->
 
-  <!-- slide: q3 type=table -->
+  <!-- slide: s38c type=table -->
   <section class="slide slide--table">
-    <div class="slide__head">
-      <p class="slide__label in">Исходные данные · папка education</p>
-      <h2 class="slide__heading in">Три каталога — три сюжета дашборда</h2>
-    </div>
-    <div class="slide__main">
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>Каталог</th><th>Содержимое</th><th>Сюжет для дашборда</th></tr></thead>
-          <tbody>
-            <tr><th>open_tatarstan</th><td>10 CSV: цены ПФО, 5 недель 01.08–04.09.2022, наборы 169529 (14 регионов) и 24485 (5 регионов)</td><td>«Где дешевле жить» — сравнение и динамика цен</td></tr>
-            <tr><th>narod_kontrol</th><td>Численность населения и производство продуктов по муниципалитетам РТ (2020–2021), справочник ОКТМО с полигонами районов</td><td>Карта и потребление на 1000 жителей</td></tr>
-            <tr><th>okved</th><td>8 CSV: выручка и средний чек по 2337 кодам ОКВЭД × регионам РФ, 2 справочника (регионы, названия ОКВЭД)</td><td>Структура экономики по отраслям</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Исходные данные · папка education</p>
+  <h2 class="slide__heading in">Три каталога — три сюжета дашборда</h2>
+  </div>
+  <div class="slide__main">
+  <div class="table-wrap">
+  <table class="data-table">
+  <thead><tr><th>Каталог</th><th>Содержимое</th><th>Сюжет для дашборда</th></tr></thead>
+  <tbody>
+  <tr><th>open_tatarstan</th><td>10 CSV: цены ПФО, 5 недель 01.08–04.09.2022, наборы 169529 (14 регионов) и 24485 (5 регионов)</td><td>«Где дешевле жить» — сравнение и динамика цен</td></tr>
+  <tr><th>narod_kontrol</th><td>Численность населения и производство продуктов по муниципалитетам РТ (2020–2021), справочник ОКТМО с полигонами районов</td><td>Карта и потребление на 1000 жителей</td></tr>
+  <tr><th>okved</th><td>8 CSV: выручка и средний чек по 2337 кодам ОКВЭД × регионам РФ, 2 справочника (регионы, названия ОКВЭД)</td><td>Структура экономики по отраслям</td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q3 -->
+  <!-- /slide: s38c -->
 
-  <!-- slide: q4 type=divider -->
+  <!-- slide: s38d type=divider -->
   <section class="slide slide--divider slide--accent1">
-    <div class="slide__head">
-      <p class="slide__label in">Каталог 01 · open_tatarstan</p>
-      <h2 class="slide__display in">Цены ПФО</h2>
-      <p class="slide__subtitle in">Широкая таблица «товар × регион» мешает фильтрации — разворачиваем в&nbsp;длинную</p>
-    </div>
-    <div class="slide__number">01</div>
+  <div class="slide__head">
+  <p class="slide__label in">Каталог 01 · open_tatarstan</p>
+  <h2 class="slide__display in">Цены ПФО</h2>
+  <p class="slide__subtitle in">Широкая таблица «товар × регион» мешает фильтрации — разворачиваем в&nbsp;длинную</p>
+  </div>
+  <div class="slide__number">01</div>
   </section>
-  <!-- /slide: q4 -->
+  <!-- /slide: s38d -->
 
-  <!-- slide: q5 type=code -->
+  <!-- slide: s38e type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 1 · в Даталаборатории</p>
-      <h2 class="slide__heading in">UNPIVOT: широкая таблица → длинная</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_prices_pfo_long: одна строка = товар × регион × цена
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 1 · в Даталаборатории</p>
+  <h2 class="slide__heading in">UNPIVOT: широкая таблица → длинная</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_prices_pfo_long: одна строка = товар × регион × цена
   SELECT "title" AS product_name, region, CAST(price AS DOUBLE) AS price
   FROM open_tatarstan."169529_2022-08-01_2022-08-07"
   UNPIVOT (price FOR region IN (
-    "1. Нижегородская область (руб.)"        AS 'Нижегородская обл.',
-    "9. Республика Башкортостан (руб.)"      AS 'Башкортостан',
-    "12. Республика Татарстан (Татарстан) (руб.)" AS 'Татарстан'
-    -- … и остальные 11 колонок-регионов ПФО
+  "1. Нижегородская область (руб.)"        AS 'Нижегородская обл.',
+  "9. Республика Башкортостан (руб.)"      AS 'Башкортостан',
+  "12. Республика Татарстан (Татарстан) (руб.)" AS 'Татарстан'
+  -- … и остальные 11 колонок-регионов ПФО
   ));</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q5 -->
+  <!-- /slide: s38e -->
 
-  <!-- slide: q6 type=code -->
+  <!-- slide: s38f type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 2 · поверх первого</p>
-      <h2 class="slide__heading in">Сравнение цен по регионам</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_prices_summary: разброс цен по каждому товару, все 5 недель
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 2 · поверх первого</p>
+  <h2 class="slide__heading in">Сравнение цен по регионам</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_prices_summary: разброс цен по каждому товару, все 5 недель
   SELECT product_name, region,
-         ROUND(AVG(price), 2) AS avg_price,
-         ROUND(MIN(price), 2) AS min_price,
-         ROUND(MAX(price), 2) AS max_price,
-         ROUND(100 * MAX(price) / NULLIF(MIN(price), 0) - 100, 0) AS spread_pct
+  ROUND(AVG(price), 2) AS avg_price,
+  ROUND(MIN(price), 2) AS min_price,
+  ROUND(MAX(price), 2) AS max_price,
+  ROUND(100 * MAX(price) / NULLIF(MIN(price), 0) - 100, 0) AS spread_pct
   FROM d_prices_pfo_long
   GROUP BY product_name, region
   ORDER BY product_name, region;</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q6 -->
+  <!-- /slide: s38f -->
 
-  <!-- slide: q7 type=divider -->
+  <!-- slide: s38g type=divider -->
   <section class="slide slide--divider slide--accent1">
-    <div class="slide__head">
-      <p class="slide__label in">Каталог 02 · narod_kontrol</p>
-      <h2 class="slide__display in">Народный контроль</h2>
-      <p class="slide__subtitle in">Производство и потребление продуктов по муниципалитетам РТ&nbsp;· 46 районов · 2020–2021</p>
-    </div>
-    <div class="slide__number">02</div>
+  <div class="slide__head">
+  <p class="slide__label in">Каталог 02 · narod_kontrol</p>
+  <h2 class="slide__display in">Народный контроль</h2>
+  <p class="slide__subtitle in">Производство и потребление продуктов по муниципалитетам РТ&nbsp;· 46 районов · 2020–2021</p>
+  </div>
+  <div class="slide__number">02</div>
   </section>
-  <!-- /slide: q7 -->
+  <!-- /slide: s38g -->
 
-  <!-- slide: q8 type=code -->
+  <!-- slide: s38h type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 3 · JOIN двух таблиц каталога</p>
-      <h2 class="slide__heading in">Потребление на 1000 жителей</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_nk_per_capita: производство делим на численность района
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 3 · JOIN двух таблиц каталога</p>
+  <h2 class="slide__heading in">Потребление на 1000 жителей</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_nk_per_capita: производство делим на численность района
   SELECT p.area_name AS district, p.year, p.product_name,
-         ROUND(p.volume * 1000 / c.count, 1) AS per_1000
+  ROUND(p.volume * 1000 / c.count, 1) AS per_1000
   FROM narod_kontrol.municipalitets_potreblenija_proizvedeno p
   JOIN narod_kontrol.municipalitets_chislennost c
-    ON p.area_name = c.area_name AND p.year = c.year
+  ON p.area_name = c.area_name AND p.year = c.year
   WHERE c.product_name LIKE 'Среднегодовая численность%';</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q8 -->
+  <!-- /slide: s38h -->
 
-  <!-- slide: q9 type=code -->
+  <!-- slide: s38i type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 4 · для карты</p>
-      <h2 class="slide__heading in">JOIN со справочником ОКТМО</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_nk_geo: районы РТ с полигонами для choropleth-карты
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 4 · для карты</p>
+  <h2 class="slide__heading in">JOIN со справочником ОКТМО</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_nk_geo: районы РТ с полигонами для choropleth-карты
   SELECT m.oktmo, m.area_name AS district,
-         CAST(m.oktmo AS BIGINT) AS oktmo_num,
-         g.geojson
+  CAST(m.oktmo AS BIGINT) AS oktmo_num,
+  g.geojson
   FROM narod_kontrol.oktmo_with_name_municipalitets m
   JOIN narod_kontrol.oktmo_geojson_with_area_name g
-    ON m.oktmo = g.oktmo;
+  ON m.oktmo = g.oktmo;
   -- итоговый дашборд: карта «Производство по районам РТ»</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q9 -->
+  <!-- /slide: s38i -->
 
-  <!-- slide: q10 type=divider -->
+  <!-- slide: s38j type=divider -->
   <section class="slide slide--divider slide--accent1">
-    <div class="slide__head">
-      <p class="slide__label in">Каталог 03 · okved</p>
-      <h2 class="slide__display in">Бизнес по отраслям</h2>
-      <p class="slide__subtitle in">Выручка и средний чек по 2337 кодам ОКВЭД · названия кодов — из&nbsp;справочника</p>
-    </div>
-    <div class="slide__number">03</div>
+  <div class="slide__head">
+  <p class="slide__label in">Каталог 03 · okved</p>
+  <h2 class="slide__display in">Бизнес по отраслям</h2>
+  <p class="slide__subtitle in">Выручка и средний чек по 2337 кодам ОКВЭД · названия кодов — из&nbsp;справочника</p>
+  </div>
+  <div class="slide__number">03</div>
   </section>
-  <!-- /slide: q10 -->
+  <!-- /slide: s38j -->
 
-  <!-- slide: q11 type=code -->
+  <!-- slide: s38k type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 5 · выручка РТ + чек</p>
-      <h2 class="slide__heading in">Двойной JOIN: чек и справочник</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_okved_rt: выручка и средний чек отраслей Татарстана
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 5 · выручка РТ + чек</p>
+  <h2 class="slide__heading in">Двойной JOIN: чек и справочник</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_okved_rt: выручка и средний чек отраслей Татарстана
   SELECT s."Название" AS industry,
-         CAST(v."Республика Татарстан (Татарстан)" AS DOUBLE) AS revenue,
-         CAST(ch."Республика Татарстан (Татарстан)" AS DOUBLE) AS avg_check
+  CAST(v."Республика Татарстан (Татарстан)" AS DOUBLE) AS revenue,
+  CAST(ch."Республика Татарстан (Татарстан)" AS DOUBLE) AS avg_check
   FROM okved."Отчет ОКВЭД_Выручка_1" v
   JOIN okved."Отчет ОКВЭД_Средний чек_1" ch USING ("ОКВЭД")
   LEFT JOIN okved."Справочник_ОКВЭД_Наименование" s
-         ON v."ОКВЭД" = s."Код"
+  ON v."ОКВЭД" = s."Код"
   WHERE v."ОКВЭД" &lt;&gt; 'Итого' AND v."ОКВЭД" &lt;&gt; '0.0.0';</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q11 -->
+  <!-- /slide: s38k -->
 
-  <!-- slide: q12 type=code -->
+  <!-- slide: s38l type=code -->
   <section class="slide slide--code">
-    <div class="slide__head">
-      <p class="slide__label in">Датасет 6 · оконная функция</p>
-      <h2 class="slide__heading in">Топ-10 отраслей и их доля</h2>
-    </div>
-    <div class="slide__main">
-      <div class="code-block"><code>-- d_okved_top10: доля отрасли в выручке РТ
+  <div class="slide__head">
+  <p class="slide__label in">Датасет 6 · оконная функция</p>
+  <h2 class="slide__heading in">Топ-10 отраслей и их доля</h2>
+  </div>
+  <div class="slide__main">
+  <div class="code-block"><code>-- d_okved_top10: доля отрасли в выручке РТ
   SELECT industry, revenue, avg_check,
-         ROUND(100 * revenue / SUM(revenue) OVER (), 1) AS share_pct,
-         ROW_NUMBER() OVER (ORDER BY revenue DESC) AS pos
+  ROUND(100 * revenue / SUM(revenue) OVER (), 1) AS share_pct,
+  ROW_NUMBER() OVER (ORDER BY revenue DESC) AS pos
   FROM d_okved_rt
   WHERE revenue &gt; 0
   ORDER BY revenue DESC
   LIMIT 10;</code></div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q12 -->
+  <!-- /slide: s38l -->
 
-  <!-- slide: q13 type=table -->
+  <!-- slide: s38m type=table -->
   <section class="slide slide--table">
-    <div class="slide__head">
-      <p class="slide__label in">Сборка · Конструктор отчётов</p>
-      <h2 class="slide__heading in">Из датасета — в виджет дашборда</h2>
-    </div>
-    <div class="slide__main">
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>Датасет</th><th>Что показывает</th><th>Виджет</th></tr></thead>
-          <tbody>
-            <tr><th>d_prices_pfo_long</th><td>Цены на товар по регионам ПФО, 5 недель</td><td>Бар «Где дешевле», карта цен</td></tr>
-            <tr><th>d_prices_summary</th><td>Разброс цен по товару, %</td><td>Таблица «Самые разные цены»</td></tr>
-            <tr><th>d_nk_per_capita</th><td>Производство на 1000 жителей района</td><td>Бар по районам, 2020–2021</td></tr>
-            <tr><th>d_nk_geo</th><td>Полигоны муниципалитетов</td><td>Choropleth-карта РТ</td></tr>
-            <tr><th>d_okved_rt</th><td>Выручка и средний чек отраслей</td><td>Таблица отраслей</td></tr>
-            <tr><th>d_okved_top10</th><td>Топ-10 отраслей и доля в выручке</td><td>Бар «Структура экономики РТ»</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Сборка · Конструктор отчётов</p>
+  <h2 class="slide__heading in">Из датасета — в виджет дашборда</h2>
+  </div>
+  <div class="slide__main">
+  <div class="table-wrap">
+  <table class="data-table">
+  <thead><tr><th>Датасет</th><th>Что показывает</th><th>Виджет</th></tr></thead>
+  <tbody>
+  <tr><th>d_prices_pfo_long</th><td>Цены на товар по регионам ПФО, 5 недель</td><td>Бар «Где дешевле», карта цен</td></tr>
+  <tr><th>d_prices_summary</th><td>Разброс цен по товару, %</td><td>Таблица «Самые разные цены»</td></tr>
+  <tr><th>d_nk_per_capita</th><td>Производство на 1000 жителей района</td><td>Бар по районам, 2020–2021</td></tr>
+  <tr><th>d_nk_geo</th><td>Полигоны муниципалитетов</td><td>Choropleth-карта РТ</td></tr>
+  <tr><th>d_okved_rt</th><td>Выручка и средний чек отраслей</td><td>Таблица отраслей</td></tr>
+  <tr><th>d_okved_top10</th><td>Топ-10 отраслей и доля в выручке</td><td>Бар «Структура экономики РТ»</td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q13 -->
+  <!-- /slide: s38m -->
 
-  <!-- slide: q14 type=dash -->
+  <!-- slide: s38o type=dash -->
   <section class="slide slide--dash">
-    <div class="slide__head">
-      <p class="slide__label in">Итог дополнения · макет дашборда</p>
-      <h2 class="slide__heading in">Дашборд из&nbsp;учебных датасетов</h2>
-    </div>
-    <div class="slide__main">
-      <div class="db in">
-        <div class="db__filters">
-          <span class="db__filter">Регион: <b>Республика Татарстан</b></span>
-          <span class="db__filter">Период: <b>01.08–04.09.2022</b></span>
-          <span class="db__filter">Датасет: <b>d_prices_pfo_long</b></span>
-          <span class="db__apply">Применить фильтры</span>
-        </div>
-        <div class="db__grid">
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · хлеб ржаной, РТ</p>
-            <div class="db__num">59,84&nbsp;₽</div>
-            <p class="db__delta db__delta--up">59,65 → 60,12&nbsp;₽ за&nbsp;5&nbsp;недель</p>
-            <p class="db__src">d_prices_pfo_long: AVG(price), Татарстан</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · средний чек, ОКВЭД</p>
-            <div class="db__num">913&nbsp;₽</div>
-            <p class="db__delta">медиана по отраслям</p>
-            <p class="db__src">d_okved_rt: медиана avg_check по отраслям</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · население районов</p>
-            <div class="db__num">2,10&nbsp;млн</div>
-            <p class="db__delta">46 районов, 2021</p>
-            <p class="db__src">narod_kontrol.municipalitets_chislennost: SUM(count)</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Time-series Chart · цена хлеба по неделям</p>
-            <svg class="db__svg" viewBox="0 0 300 96" preserveAspectRatio="none">
-              <polyline class="db__area" points="0,52 60,57 120,55 180,50 240,44 300,41 300,96 0,96"/>
-              <polyline class="db__line" points="0,52 60,57 120,55 180,50 240,44 300,41"/>
-              <circle class="db__dot" cx="0" cy="52" r="3"/><circle class="db__dot" cx="60" cy="57" r="3"/>
-              <circle class="db__dot" cx="120" cy="55" r="3"/><circle class="db__dot" cx="180" cy="50" r="3"/>
-              <circle class="db__dot" cx="240" cy="44" r="3"/><circle class="db__dot" cx="300" cy="41" r="3"/>
-            </svg>
-            <p class="db__axis">01.08 · 08.08 · 15.08 · 22.08 · 29.08 · 04.09 · ₽/кг</p>
-            <p class="db__src">d_prices_pfo_long: avg по неделям, товар «Хлеб ржаной»</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Bar Chart · топ-6 ОКВЭД, выручка РТ</p>
-            <div class="db__bars">
-              <div class="db__bar"><span>Розница: продукты</span><i style="width:100%"></i><em>452&nbsp;млн</em></div>
-              <div class="db__bar"><span>Авиаперевозки</span><i style="width:92%"></i><em>416&nbsp;млн</em></div>
-              <div class="db__bar"><span>Розница: прочая</span><i style="width:86%"></i><em>390&nbsp;млн</em></div>
-              <div class="db__bar"><span>Общепит</span><i style="width:49%"></i><em>220&nbsp;млн</em></div>
-              <div class="db__bar"><span>Автотрейд</span><i style="width:48%"></i><em>216&nbsp;млн</em></div>
-              <div class="db__bar"><span>Опт: топливо</span><i style="width:29%"></i><em>130&nbsp;млн</em></div>
-            </div>
-            <p class="db__src">d_okved_top10: revenue, без «Итого» и 0.0.0</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Table · разброс цен, РТ, 5 недель</p>
-            <table class="db__table">
-              <thead><tr><th>Товар</th><th>сред</th><th>min–max</th></tr></thead>
-              <tbody>
-                <tr><td>Хлеб ржаной</td><td>59,84</td><td>59,65–60,12</td></tr>
-                <tr><td>Молоко 2,5–3,2&nbsp;%</td><td>62,26</td><td>61,55–62,51</td></tr>
-                <tr><td>Рис шлифованный</td><td>97,34</td><td>96,15–98,43</td></tr>
-                <tr><td>Говядина</td><td>485,05</td><td>483,69–486,36</td></tr>
-                <tr><td>Масло сливочное</td><td>670,12</td><td>667,69–672,59</td></tr>
-              </tbody>
-            </table>
-            <p class="db__src">d_prices_summary: min / avg / max по товару</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Pie Chart · молоко по районам, т, 2021</p>
-            <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
-              <circle class="db__ring" cx="21" cy="21" r="15.9"/>
-              <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="57 43" stroke-dashoffset="25"/>
-              <circle class="db__seg db__seg--2" cx="21" cy="21" r="15.9" stroke-dasharray="28 72" stroke-dashoffset="-32"/>
-              <text class="db__donutnum" x="21" y="23">515&nbsp;т</text>
-            </svg>
-            <p class="db__axis">Кукморский&nbsp;149 · Балтасинский&nbsp;144 · Атнинский&nbsp;118 · Сабинский&nbsp;103 · Актанышский&nbsp;101</p>
-            <p class="db__src">d_nk_per_capita + d_nk_geo: volume, 2021</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Сюжет 01 · каталог open_tatarstan</p>
+  <h2 class="slide__heading in">Дашборд «Где дешевле жить»</h2>
+  </div>
+  <div class="slide__main">
+  <div class="db in">
+  <div class="db__filters">
+  <span class="db__filter">Каталог: <b>open_tatarstan</b></span>
+  <span class="db__filter">Товар: <b>Хлеб ржаной</b></span>
+  <span class="db__filter">Период: <b>01.08–04.09.2022</b></span>
+  <span class="db__apply">Применить фильтры</span>
+  </div>
+  <div class="db__grid">
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · самая дорогая цена</p>
+  <div class="db__num">70,78&nbsp;₽</div>
+  <p class="db__delta db__delta--up">Башкортостан</p>
+  <p class="db__src">d_prices_pfo_long: AVG(price) по регионам</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · Татарстан</p>
+  <div class="db__num">59,84&nbsp;₽</div>
+  <p class="db__delta">8-е место из&nbsp;14 регионов ПФО</p>
+  <p class="db__src">d_prices_pfo_long: AVG(price), фильтр «Татарстан»</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · самая дешёвая цена</p>
+  <div class="db__num">50,50&nbsp;₽</div>
+  <p class="db__delta">Саратовская область</p>
+  <p class="db__src">d_prices_pfo_long: MIN по регионам</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Time-series Chart · цена хлеба по неделям, РТ</p>
+  <svg class="db__svg" viewBox="0 0 300 96" preserveAspectRatio="none">
+  <polyline class="db__area" points="0,52 60,57 120,55 180,50 240,44 300,41 300,96 0,96"/>
+  <polyline class="db__line" points="0,52 60,57 120,55 180,50 240,44 300,41"/>
+  <circle class="db__dot" cx="0" cy="52" r="3"/><circle class="db__dot" cx="60" cy="57" r="3"/>
+  <circle class="db__dot" cx="120" cy="55" r="3"/><circle class="db__dot" cx="180" cy="50" r="3"/>
+  <circle class="db__dot" cx="240" cy="44" r="3"/><circle class="db__dot" cx="300" cy="41" r="3"/>
+  </svg>
+  <p class="db__axis">01.08 · 08.08 · 15.08 · 22.08 · 29.08 · 04.09 · ₽/кг</p>
+  <p class="db__src">d_prices_pfo_long: avg по неделям, товар «Хлеб ржаной»</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Bar Chart · средняя цена хлеба по регионам</p>
+  <div class="db__bars">
+  <div class="db__bar"><span>Башкортостан</span><i style="width:100%"></i><em>70,78</em></div>
+  <div class="db__bar"><span>Оренбургская обл.</span><i style="width:93%"></i><em>65,69</em></div>
+  <div class="db__bar"><span>Татарстан</span><i class="db__lead" style="width:84%"></i><em>59,84</em></div>
+  <div class="db__bar"><span>Кировская обл.</span><i style="width:81%"></i><em>57,48</em></div>
+  <div class="db__bar"><span>Мордовия</span><i style="width:75%"></i><em>53,32</em></div>
+  <div class="db__bar"><span>Саратовская обл.</span><i style="width:71%"></i><em>50,50</em></div>
+  </div>
+  <p class="db__src">d_prices_summary: avg_price, 6 из 14 регионов</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Table · разброс цен, РТ, 5 недель</p>
+  <table class="db__table">
+  <thead><tr><th>Товар</th><th>сред</th><th>min–max</th></tr></thead>
+  <tbody>
+  <tr><td>Соль поваренная</td><td>14,93</td><td>14,72–15,29</td></tr>
+  <tr><td>Рис шлифованный</td><td>97,34</td><td>96,15–98,43</td></tr>
+  <tr><td>Говядина</td><td>485,05</td><td>483,69–486,36</td></tr>
+  <tr><td>Масло сливочное</td><td>670,12</td><td>667,69–672,59</td></tr>
+  </tbody>
+  </table>
+  <p class="db__src">d_prices_summary: min / avg / max по товару</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q14 -->
+  <!-- /slide: s38o -->
 
-  <!-- slide: q15 type=dash -->
+  <!-- slide: s38p type=dash -->
   <section class="slide slide--dash">
-    <div class="slide__head">
-      <p class="slide__label in">Сюжет 01 · каталог open_tatarstan</p>
-      <h2 class="slide__heading in">Дашборд «Где дешевле жить»</h2>
-    </div>
-    <div class="slide__main">
-      <div class="db in">
-        <div class="db__filters">
-          <span class="db__filter">Каталог: <b>open_tatarstan</b></span>
-          <span class="db__filter">Товар: <b>Хлеб ржаной</b></span>
-          <span class="db__filter">Период: <b>01.08–04.09.2022</b></span>
-          <span class="db__apply">Применить фильтры</span>
-        </div>
-        <div class="db__grid">
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · самая дорогая цена</p>
-            <div class="db__num">70,78&nbsp;₽</div>
-            <p class="db__delta db__delta--up">Башкортостан</p>
-            <p class="db__src">d_prices_pfo_long: AVG(price) по регионам</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · Татарстан</p>
-            <div class="db__num">59,84&nbsp;₽</div>
-            <p class="db__delta">8-е место из&nbsp;14 регионов ПФО</p>
-            <p class="db__src">d_prices_pfo_long: AVG(price), фильтр «Татарстан»</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · самая дешёвая цена</p>
-            <div class="db__num">50,50&nbsp;₽</div>
-            <p class="db__delta">Саратовская область</p>
-            <p class="db__src">d_prices_pfo_long: MIN по регионам</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Time-series Chart · цена хлеба по неделям, РТ</p>
-            <svg class="db__svg" viewBox="0 0 300 96" preserveAspectRatio="none">
-              <polyline class="db__area" points="0,52 60,57 120,55 180,50 240,44 300,41 300,96 0,96"/>
-              <polyline class="db__line" points="0,52 60,57 120,55 180,50 240,44 300,41"/>
-              <circle class="db__dot" cx="0" cy="52" r="3"/><circle class="db__dot" cx="60" cy="57" r="3"/>
-              <circle class="db__dot" cx="120" cy="55" r="3"/><circle class="db__dot" cx="180" cy="50" r="3"/>
-              <circle class="db__dot" cx="240" cy="44" r="3"/><circle class="db__dot" cx="300" cy="41" r="3"/>
-            </svg>
-            <p class="db__axis">01.08 · 08.08 · 15.08 · 22.08 · 29.08 · 04.09 · ₽/кг</p>
-            <p class="db__src">d_prices_pfo_long: avg по неделям, товар «Хлеб ржаной»</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Bar Chart · средняя цена хлеба по регионам</p>
-            <div class="db__bars">
-              <div class="db__bar"><span>Башкортостан</span><i style="width:100%"></i><em>70,78</em></div>
-              <div class="db__bar"><span>Оренбургская обл.</span><i style="width:93%"></i><em>65,69</em></div>
-              <div class="db__bar"><span>Татарстан</span><i class="db__lead" style="width:84%"></i><em>59,84</em></div>
-              <div class="db__bar"><span>Кировская обл.</span><i style="width:81%"></i><em>57,48</em></div>
-              <div class="db__bar"><span>Мордовия</span><i style="width:75%"></i><em>53,32</em></div>
-              <div class="db__bar"><span>Саратовская обл.</span><i style="width:71%"></i><em>50,50</em></div>
-            </div>
-            <p class="db__src">d_prices_summary: avg_price, 6 из 14 регионов</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Table · разброс цен, РТ, 5 недель</p>
-            <table class="db__table">
-              <thead><tr><th>Товар</th><th>сред</th><th>min–max</th></tr></thead>
-              <tbody>
-                <tr><td>Соль поваренная</td><td>14,93</td><td>14,72–15,29</td></tr>
-                <tr><td>Рис шлифованный</td><td>97,34</td><td>96,15–98,43</td></tr>
-                <tr><td>Говядина</td><td>485,05</td><td>483,69–486,36</td></tr>
-                <tr><td>Масло сливочное</td><td>670,12</td><td>667,69–672,59</td></tr>
-              </tbody>
-            </table>
-            <p class="db__src">d_prices_summary: min / avg / max по товару</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Сюжет 02 · каталог narod_kontrol</p>
+  <h2 class="slide__heading in">Дашборд «Производство по районам»</h2>
+  </div>
+  <div class="slide__main">
+  <div class="db in">
+  <div class="db__filters">
+  <span class="db__filter">Каталог: <b>narod_kontrol</b></span>
+  <span class="db__filter">Год: <b>2021</b></span>
+  <span class="db__filter">Продукт: <b>Молоко</b></span>
+  <span class="db__apply">Применить фильтры</span>
+  </div>
+  <div class="db__grid">
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · население районов</p>
+  <div class="db__num">2,10&nbsp;млн</div>
+  <p class="db__delta">46 районов, 2021</p>
+  <p class="db__src">narod_kontrol.municipalitets_chislennost: SUM(count)</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · молоко, топ-5 районов</p>
+  <div class="db__num">515&nbsp;т</div>
+  <p class="db__delta">41&nbsp;% всех районов</p>
+  <p class="db__src">d_nk_per_capita: SUM(volume), топ-5</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · лидер по яйцам</p>
+  <div class="db__num">969&nbsp;тыс&nbsp;шт</div>
+  <p class="db__delta db__delta--up">Лаишевский — 64&nbsp;% всех яиц</p>
+  <p class="db__src">d_nk_per_capita: volume, «Яйца, 1000 шт», 2021</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Bar Chart · молоко по районам, т, 2021</p>
+  <div class="db__bars">
+  <div class="db__bar"><span>Кукморский</span><i style="width:100%"></i><em>149&nbsp;т</em></div>
+  <div class="db__bar"><span>Балтасинский</span><i style="width:97%"></i><em>144&nbsp;т</em></div>
+  <div class="db__bar"><span>Атнинский</span><i style="width:79%"></i><em>118&nbsp;т</em></div>
+  <div class="db__bar"><span>Сабинский</span><i style="width:69%"></i><em>103&nbsp;т</em></div>
+  <div class="db__bar"><span>Актанышский</span><i style="width:68%"></i><em>101&nbsp;т</em></div>
+  </div>
+  <p class="db__src">d_nk_per_capita: volume, «Молоко, тонн», 2021</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Pie Chart · яйца по районам, 2021</p>
+  <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
+  <circle class="db__ring" cx="21" cy="21" r="15.9"/>
+  <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="64 36" stroke-dashoffset="25"/>
+  <text class="db__donutnum" x="21" y="23">1,51&nbsp;млн</text>
+  </svg>
+  <p class="db__axis">Лаишевский&nbsp;969 · Тукаевский&nbsp;94 · Лениногорский&nbsp;71 · Пестречинский&nbsp;52 · Муслюмовский&nbsp;45 тыс</p>
+  <p class="db__src">d_nk_geo + d_nk_per_capita: volume, «Яйца»</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Table · картофель по районам, т, 2021</p>
+  <table class="db__table">
+  <thead><tr><th>Район</th><th>тонн</th></tr></thead>
+  <tbody>
+  <tr><td>Арский</td><td>59&nbsp;330</td></tr>
+  <tr><td>Лаишевский</td><td>45&nbsp;444</td></tr>
+  <tr><td>Тукаевский</td><td>43&nbsp;821</td></tr>
+  <tr><td>Нурлатский</td><td>32&nbsp;662</td></tr>
+  <tr><td>Елабужский</td><td>31&nbsp;244</td></tr>
+  </tbody>
+  </table>
+  <p class="db__src">d_nk_per_capita: volume, «Картофель, тонн», 2021</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q15 -->
+  <!-- /slide: s38p -->
 
-  <!-- slide: q16 type=dash -->
+  <!-- slide: s38q type=dash -->
   <section class="slide slide--dash">
-    <div class="slide__head">
-      <p class="slide__label in">Сюжет 02 · каталог narod_kontrol</p>
-      <h2 class="slide__heading in">Дашборд «Производство по районам»</h2>
-    </div>
-    <div class="slide__main">
-      <div class="db in">
-        <div class="db__filters">
-          <span class="db__filter">Каталог: <b>narod_kontrol</b></span>
-          <span class="db__filter">Год: <b>2021</b></span>
-          <span class="db__filter">Продукт: <b>Молоко</b></span>
-          <span class="db__apply">Применить фильтры</span>
-        </div>
-        <div class="db__grid">
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · население районов</p>
-            <div class="db__num">2,10&nbsp;млн</div>
-            <p class="db__delta">46 районов, 2021</p>
-            <p class="db__src">narod_kontrol.municipalitets_chislennost: SUM(count)</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · молоко, топ-5 районов</p>
-            <div class="db__num">515&nbsp;т</div>
-            <p class="db__delta">41&nbsp;% всех районов</p>
-            <p class="db__src">d_nk_per_capita: SUM(volume), топ-5</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · лидер по яйцам</p>
-            <div class="db__num">969&nbsp;тыс&nbsp;шт</div>
-            <p class="db__delta db__delta--up">Лаишевский — 64&nbsp;% всех яиц</p>
-            <p class="db__src">d_nk_per_capita: volume, «Яйца, 1000 шт», 2021</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Bar Chart · молоко по районам, т, 2021</p>
-            <div class="db__bars">
-              <div class="db__bar"><span>Кукморский</span><i style="width:100%"></i><em>149&nbsp;т</em></div>
-              <div class="db__bar"><span>Балтасинский</span><i style="width:97%"></i><em>144&nbsp;т</em></div>
-              <div class="db__bar"><span>Атнинский</span><i style="width:79%"></i><em>118&nbsp;т</em></div>
-              <div class="db__bar"><span>Сабинский</span><i style="width:69%"></i><em>103&nbsp;т</em></div>
-              <div class="db__bar"><span>Актанышский</span><i style="width:68%"></i><em>101&nbsp;т</em></div>
-            </div>
-            <p class="db__src">d_nk_per_capita: volume, «Молоко, тонн», 2021</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Pie Chart · яйца по районам, 2021</p>
-            <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
-              <circle class="db__ring" cx="21" cy="21" r="15.9"/>
-              <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="64 36" stroke-dashoffset="25"/>
-              <text class="db__donutnum" x="21" y="23">1,51&nbsp;млн</text>
-            </svg>
-            <p class="db__axis">Лаишевский&nbsp;969 · Тукаевский&nbsp;94 · Лениногорский&nbsp;71 · Пестречинский&nbsp;52 · Муслюмовский&nbsp;45 тыс</p>
-            <p class="db__src">d_nk_geo + d_nk_per_capita: volume, «Яйца»</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Table · картофель по районам, т, 2021</p>
-            <table class="db__table">
-              <thead><tr><th>Район</th><th>тонн</th></tr></thead>
-              <tbody>
-                <tr><td>Арский</td><td>59&nbsp;330</td></tr>
-                <tr><td>Лаишевский</td><td>45&nbsp;444</td></tr>
-                <tr><td>Тукаевский</td><td>43&nbsp;821</td></tr>
-                <tr><td>Нурлатский</td><td>32&nbsp;662</td></tr>
-                <tr><td>Елабужский</td><td>31&nbsp;244</td></tr>
-              </tbody>
-            </table>
-            <p class="db__src">d_nk_per_capita: volume, «Картофель, тонн», 2021</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
+  <div class="slide__head">
+  <p class="slide__label in">Сюжет 03 · каталог okved</p>
+  <h2 class="slide__heading in">Дашборд «Структура экономики РТ»</h2>
+  </div>
+  <div class="slide__main">
+  <div class="db in">
+  <div class="db__filters">
+  <span class="db__filter">Каталог: <b>okved</b></span>
+  <span class="db__filter">Регион: <b>Республика Татарстан</b></span>
+  <span class="db__filter">Часть: <b>_1</b></span>
+  <span class="db__apply">Применить фильтры</span>
+  </div>
+  <div class="db__grid">
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · выручка по всем ОКВЭД</p>
+  <div class="db__num">3,39&nbsp;млрд&nbsp;₽</div>
+  <p class="db__delta">строка «Итого», часть&nbsp;_1</p>
+  <p class="db__src">okved/Выручка_1: «Итого», РТ</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · средний чек</p>
+  <div class="db__num">913&nbsp;₽</div>
+  <p class="db__delta">медиана по отраслям</p>
+  <p class="db__src">d_okved_rt: медиана avg_check по отраслям</p>
+  </div>
+  <div class="db__card db__bignum">
+  <p class="db__title">Big Number · кодов ОКВЭД</p>
+  <div class="db__num">2&nbsp;337</div>
+  <p class="db__delta">без «Итого» и агрегата 0.0.0</p>
+  <p class="db__src">okved/Выручка_1: COUNT("ОКВЭД")</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Bar Chart · топ-6 ОКВЭД, выручка РТ</p>
+  <div class="db__bars">
+  <div class="db__bar"><span>Розница: продукты</span><i style="width:100%"></i><em>452&nbsp;млн</em></div>
+  <div class="db__bar"><span>Авиаперевозки</span><i style="width:92%"></i><em>416&nbsp;млн</em></div>
+  <div class="db__bar"><span>Розница: прочая</span><i style="width:86%"></i><em>390&nbsp;млн</em></div>
+  <div class="db__bar"><span>Общепит</span><i style="width:49%"></i><em>220&nbsp;млн</em></div>
+  <div class="db__bar"><span>Автотрейд</span><i style="width:48%"></i><em>216&nbsp;млн</em></div>
+  <div class="db__bar"><span>Опт: топливо</span><i style="width:29%"></i><em>130&nbsp;млн</em></div>
+  </div>
+  <p class="db__src">d_okved_top10: revenue, без «Итого» и 0.0.0</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Pie Chart · доля топ-6 отраслей</p>
+  <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
+  <circle class="db__ring" cx="21" cy="21" r="15.9"/>
+  <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="54 46" stroke-dashoffset="25"/>
+  <text class="db__donutnum" x="21" y="23">54&nbsp;%</text>
+  </svg>
+  <p class="db__axis">Топ-6 отраслей — 1&nbsp;824&nbsp;млн из&nbsp;3&nbsp;390&nbsp;млн ₽</p>
+  <p class="db__src">d_okved_top10: SUM(revenue), доля от «Итого»</p>
+  </div>
+  <div class="db__card db__chart">
+  <p class="db__title">Table · медианный чек по отраслям</p>
+  <table class="db__table">
+  <thead><tr><th>Отрасль</th><th>чек ₽</th></tr></thead>
+  <tbody>
+  <tr><td>Производство мебели</td><td>13&nbsp;055</td></tr>
+  <tr><td>Здравоохранение</td><td>3&nbsp;085</td></tr>
+  <tr><td>Производство одежды</td><td>3&nbsp;017</td></tr>
+  <tr><td>Турагентства</td><td>2&nbsp;926</td></tr>
+  <tr><td>Автотранспорт</td><td>1&nbsp;825</td></tr>
+  </tbody>
+  </table>
+  <p class="db__src">d_okved_rt: медиана avg_check по группам ОКВЭД</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
   </section>
-  <!-- /slide: q16 -->
-
-  <!-- slide: q17 type=dash -->
-  <section class="slide slide--dash">
-    <div class="slide__head">
-      <p class="slide__label in">Сюжет 03 · каталог okved</p>
-      <h2 class="slide__heading in">Дашборд «Структура экономики РТ»</h2>
-    </div>
-    <div class="slide__main">
-      <div class="db in">
-        <div class="db__filters">
-          <span class="db__filter">Каталог: <b>okved</b></span>
-          <span class="db__filter">Регион: <b>Республика Татарстан</b></span>
-          <span class="db__filter">Часть: <b>_1</b></span>
-          <span class="db__apply">Применить фильтры</span>
-        </div>
-        <div class="db__grid">
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · выручка по всем ОКВЭД</p>
-            <div class="db__num">3,39&nbsp;млрд&nbsp;₽</div>
-            <p class="db__delta">строка «Итого», часть&nbsp;_1</p>
-            <p class="db__src">okved/Выручка_1: «Итого», РТ</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · средний чек</p>
-            <div class="db__num">913&nbsp;₽</div>
-            <p class="db__delta">медиана по отраслям</p>
-            <p class="db__src">d_okved_rt: медиана avg_check по отраслям</p>
-          </div>
-          <div class="db__card db__bignum">
-            <p class="db__title">Big Number · кодов ОКВЭД</p>
-            <div class="db__num">2&nbsp;337</div>
-            <p class="db__delta">без «Итого» и агрегата 0.0.0</p>
-            <p class="db__src">okved/Выручка_1: COUNT("ОКВЭД")</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Bar Chart · топ-6 ОКВЭД, выручка РТ</p>
-            <div class="db__bars">
-              <div class="db__bar"><span>Розница: продукты</span><i style="width:100%"></i><em>452&nbsp;млн</em></div>
-              <div class="db__bar"><span>Авиаперевозки</span><i style="width:92%"></i><em>416&nbsp;млн</em></div>
-              <div class="db__bar"><span>Розница: прочая</span><i style="width:86%"></i><em>390&nbsp;млн</em></div>
-              <div class="db__bar"><span>Общепит</span><i style="width:49%"></i><em>220&nbsp;млн</em></div>
-              <div class="db__bar"><span>Автотрейд</span><i style="width:48%"></i><em>216&nbsp;млн</em></div>
-              <div class="db__bar"><span>Опт: топливо</span><i style="width:29%"></i><em>130&nbsp;млн</em></div>
-            </div>
-            <p class="db__src">d_okved_top10: revenue, без «Итого» и 0.0.0</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Pie Chart · доля топ-6 отраслей</p>
-            <svg class="db__svg db__svg--donut" viewBox="0 0 42 42">
-              <circle class="db__ring" cx="21" cy="21" r="15.9"/>
-              <circle class="db__seg" cx="21" cy="21" r="15.9" stroke-dasharray="54 46" stroke-dashoffset="25"/>
-              <text class="db__donutnum" x="21" y="23">54&nbsp;%</text>
-            </svg>
-            <p class="db__axis">Топ-6 отраслей — 1&nbsp;824&nbsp;млн из&nbsp;3&nbsp;390&nbsp;млн ₽</p>
-            <p class="db__src">d_okved_top10: SUM(revenue), доля от «Итого»</p>
-          </div>
-          <div class="db__card db__chart">
-            <p class="db__title">Table · медианный чек по отраслям</p>
-            <table class="db__table">
-              <thead><tr><th>Отрасль</th><th>чек ₽</th></tr></thead>
-              <tbody>
-                <tr><td>Производство мебели</td><td>13&nbsp;055</td></tr>
-                <tr><td>Здравоохранение</td><td>3&nbsp;085</td></tr>
-                <tr><td>Производство одежды</td><td>3&nbsp;017</td></tr>
-                <tr><td>Турагентства</td><td>2&nbsp;926</td></tr>
-                <tr><td>Автотранспорт</td><td>1&nbsp;825</td></tr>
-              </tbody>
-            </table>
-            <p class="db__src">d_okved_rt: медиана avg_check по группам ОКВЭД</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide__foot">Источник: программа стажировочной площадки 2026. Ведущий: Семёнов Евгений Анатольевич, заместитель начальника отдела, отдел управления данными, ГКУ ЦЦТ РТ.</div>
-  </section>
-  <!-- /slide: q17 -->
+  <!-- /slide: s38q -->
 
   <!-- slide: s39 type=stats -->
   <section class="slide slide--stats">
