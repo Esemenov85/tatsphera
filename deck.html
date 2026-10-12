@@ -26,6 +26,7 @@
       sb.auth.getSession().then(function (res) {
         if (res && res.data && res.data.session) {
           document.documentElement.classList.remove('auth-guard');
+          readRestoreTarget();
           startIdle();
         } else {
           window.location.replace('login.html');
@@ -35,14 +36,33 @@
       });
 
       // ============================================================
-      // АВТОВЫХОД ПРИ ПРОСТОЕ
-      // Нет активности 10 минут → signOut + возврат на login.html.
-      // Любое действие пользователя сбрасывает таймер.
+      // АВТОВЫХОД ПРИ ПРОСТОЕ + ВОЗВРАТ НА ТОТ ЖЕ СЛАЙД
+      // Нет активности 10 минут → сохраняем номер текущего слайда,
+      // signOut и возврат на login.html. После повторного входа
+      // deck.html откроется на сохранённом слайде.
       // ============================================================
       var IDLE_MS = 10 * 60 * 1000;
+      var SLIDE_KEY = 'tatsphera-slide';
       var idleTimer = null;
 
+      function saveCurrentSlide() {
+        try {
+          sessionStorage.setItem(SLIDE_KEY, String(window.__deckCurrent || 0));
+        } catch (e) {}
+      }
+      function readRestoreTarget() {
+        try {
+          var saved = sessionStorage.getItem(SLIDE_KEY);
+          if (saved !== null) {
+            sessionStorage.removeItem(SLIDE_KEY);
+            var n = parseInt(saved, 10);
+            if (!isNaN(n) && n > 0) window.__deckRestoreTo = n;
+          }
+        } catch (e) {}
+      }
+
       function idleLogout() {
+        saveCurrentSlide();
         try {
           sb.auth.signOut().then(function () {
             window.location.replace('login.html');
@@ -2138,6 +2158,20 @@
     this.bind();
     this.observe();
     this.update();
+
+    // Возврат на слайд, с которого вышли по таймауту (после повторного входа)
+    var restore = window.__deckRestoreTo;
+    window.__deckRestoreTo = undefined;
+    if (typeof restore === "number" && restore > 0 && restore < this.total) {
+      var deckEl = document.querySelector(".deck");
+      deckEl.style.scrollBehavior = "auto";
+      this.current = restore;
+      this.mark(0, restore);
+      this.showFrags(restore, this.frags(restore).length);
+      this.slides[restore].scrollIntoView({ behavior: "auto", block: "start" });
+      deckEl.style.scrollBehavior = "";
+      this.update();
+    }
   }
   Deck.prototype.chrome = function () {
     var self = this;
@@ -2243,6 +2277,7 @@
   };
   Deck.prototype.update = function () {
     var c = this.current;
+    window.__deckCurrent = c;
     this.bar.style.width = ((c + 1) / this.total) * 100 + "%";
     this.counter.textContent = c + 1 + " / " + this.total;
   };
