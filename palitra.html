@@ -1,0 +1,339 @@
+Here is a complete HTML/CSS document that demonstrates the use of your five-color palette. It shows how each color is applied to its designated role—background, main, text, and two accent colors.
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Палитра: примеры использования</title>
+    <!-- 
+        Палитра из 5 цветов:
+        Основной      #0B3C49
+        Фон           #CBD2D0
+        Текст         #6A8D92
+        Доп. цвет 1   #731963
+        Доп. цвет 2   #F0E100
+    -->
+    <style>
+        /* CSS-переменные для удобства и наглядности */
+        :root {
+            --color-main:    #0B3C49;  /* Основной */
+            --color-bg:      #CBD2D0;  /* Фон */
+            --color-text:    #6A8D92;  /* Текст */
+            --color-accent1: #731963;  /* Дополнительный 1 */
+            --color-accent2: #F0E100;  /* Дополнительный 2 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: var(--color-text);          /* базовый текст – цвет текста */
+            line-height: 1.5;
+        }
+
+        /* Общая обёртка для примеров */
+        .palette-showcase {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Каждый блок-пример */
+        .example {
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 12px 24px rgba(11, 60, 73, 0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .example:hover {
+            transform: scale(1.005);
+        }
+
+        /* Заголовки внутри примеров */
+        .example h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- 1. Карточка на основном цвете (тёмный фон) --- */
+        .card-main {
+            background-color: var(--color-main);
+            color: var(--color-bg);            /* светлый текст на тёмном – читаемость */
+        }
+        .card-main h2 {
+            color: var(--color-accent2);       /* жёлтый акцент для заголовка */
+        }
+        .card-main p {
+            color: var(--color-bg);             /* фон-цвет для основного текста на тёмном */
+        }
+        .card-main .meta {
+            color: var(--color-text);           /* текст-цвет для второстепенного */
+            border-top: 1px solid var(--color-text);
+        }
+
+        /* --- 2. Карточка на фоне (светлая) – классика --- */
+        .card-light {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+        }
+        .card-light h2 {
+            color: var(--color-main);           /* основной для заголовка */
+        }
+        .card-light p {
+            color: var(--color-main);           /* основной для основного текста */
+        }
+        .card-light .accent-badge {
+            background-color: var(--color-accent1);
+            color: var(--color-bg);
+        }
+
+        /* --- 3. Акцентная карточка с доп. цветом 1 (фиолетовый) --- */
+        .card-accent1 {
+            background-color: var(--color-accent1);
+            color: var(--color-bg);
+        }
+        .card-accent1 h2 {
+            color: var(--color-accent2);        /* жёлтый на фиолетовом – ярко */
+        }
+        .card-accent1 p {
+            color: var(--color-bg);
+            opacity: 0.95;
+        }
+        .card-accent1 .btn {
+            background-color: var(--color-accent2);
+            color: var(--color-main);
+            border: none;
+        }
+
+        /* --- 4. Акцентная карточка с доп. цветом 2 (жёлтый) --- */
+        .card-accent2 {
+            background-color: var(--color-accent2);
+            color: var(--color-main);           /* тёмный текст на жёлтом */
+        }
+        .card-accent2 h2 {
+            color: var(--color-main);
+        }
+        .card-accent2 p {
+            color: var(--color-main);
+        }
+        .card-accent2 .btn {
+            background-color: var(--color-main);
+            color: var(--color-bg);
+        }
+
+        /* --- 5. Смешанный пример: комбинация цветов --- */
+        .card-mixed {
+            background-color: var(--color-bg);
+            border-left: 8px solid var(--color-accent1);
+            border-right: 8px solid var(--color-accent2);
+            color: var(--color-text);
+        }
+        .card-mixed h2 {
+            color: var(--color-main);
+            border-bottom: 2px solid var(--color-accent2);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card-mixed .highlight {
+            background-color: var(--color-accent2);
+            color: var(--color-main);
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        /* Общие стили для кнопок и бейджей */
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            cursor: default;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+        }
+
+        .accent-badge {
+            display: inline-block;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        /* Сетка для нескольких карточек */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .example {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Дополнительные отступы и типографика */
+        .example p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .example .meta {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent1), var(--color-accent2));
+            margin: 0.5rem 0 1.5rem 0;
+            border-radius: 2px;
+        }
+
+        /* Подпись палитры сверху */
+        .palette-label {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .swatch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-main);
+            border: 1px solid rgba(11, 60, 73, 0.15);
+        }
+
+        .swatch span {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="palette-showcase">
+
+        <!-- Легенда палитры -->
+        <div class="palette-label">
+            <div class="swatch"><span style="background: #0B3C49;"></span> Основной #0B3C49</div>
+            <div class="swatch"><span style="background: #CBD2D0;"></span> Фон #CBD2D0</div>
+            <div class="swatch"><span style="background: #6A8D92;"></span> Текст #6A8D92</div>
+            <div class="swatch"><span style="background: #731963;"></span> Доп.1 #731963</div>
+            <div class="swatch"><span style="background: #F0E100;"></span> Доп.2 #F0E100</div>
+        </div>
+
+        <!-- ========== ПРИМЕР 1: Основной цвет как фон карточки ========== -->
+        <div class="example card-main">
+            <h2>Основной цвет · #0B3C49</h2>
+            <p>Этот блок использует основной цвет в качестве фона. Текст выполнен цветом фона (#CBD2D0) для высокой контрастности. Заголовок выделен дополнительным цветом 2 (#F0E100), что делает его заметным и энергичным.</p>
+            <div class="meta">
+                <span>Дополнительный текст — цвет #6A8D92</span>
+                <span class="accent-badge" style="background: #F0E100; color: #0B3C49;">акцент 2</span>
+            </div>
+        </div>
+
+        <!-- ========== ПРИМЕР 2: Фон + текст + основной ========== -->
+        <div class="example card-light">
+            <h2>Фон #CBD2D0 · Текст #6A8D92</h2>
+            <p>Классическое использование: светлый фон, основной цвет для заголовка и важного текста, цвет текста (#6A8D92) — для основного массива. Дополнительный цвет 1 применён в бейдже.</p>
+            <p>Такой вариант отлично подходит для больших текстовых блоков, так как цвета фона и текста обеспечивают комфортное чтение.</p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem;">
+                <span class="accent-badge" style="background: #731963; color: #CBD2D0;">доп. цвет 1</span>
+                <span class="accent-badge" style="background: #F0E100; color: #0B3C49;">доп. цвет 2</span>
+                <span class="btn btn-outline" style="border-color: #6A8D92; color: #6A8D92;">кнопка</span>
+            </div>
+        </div>
+
+        <!-- ========== ПРИМЕР 3: Дополнительный цвет 1 (фиолетовый) ========== -->
+        <div class="grid-2">
+            <div class="example card-accent1">
+                <h2>Доп. цвет 1 · #731963</h2>
+                <p>Фиолетовый фон карточки. Для заголовка используется яркий дополнительный цвет 2 (#F0E100), а основной текст — светлый фон (#CBD2D0).</p>
+                <p>Такой блок привлекает внимание и может служить для акций, специальных предложений или важных уведомлений.</p>
+                <div style="margin-top: 1.5rem;">
+                    <span class="btn" style="background: #F0E100; color: #0B3C49;">Действие</span>
+                </div>
+            </div>
+
+            <!-- ========== ПРИМЕР 4: Дополнительный цвет 2 (жёлтый) ========== -->
+            <div class="example card-accent2">
+                <h2>Доп. цвет 2 · #F0E100</h2>
+                <p>Жёлтый фон — очень активный. Чтобы сохранить читаемость, текст и заголовки выполнены основным цветом (#0B3C49). Кнопка использует основной цвет.</p>
+                <p>Отлично подходит для предупреждений, выделения ключевой информации или позитивных акцентов.</p>
+                <div style="margin-top: 1.5rem;">
+                    <span class="btn" style="background: #0B3C49; color: #CBD2D0;">Важно</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ПРИМЕР 5: Смешанное использование ========== -->
+        <div class="example card-mixed">
+            <h2>Смешанный пример</h2>
+            <div class="divider"></div>
+            <p>Здесь фон остаётся нейтральным (#CBD2D0), но добавлены цветные границы: слева — дополнительный цвет 1, справа — дополнительный цвет 2. Заголовок основного цвета, подчёркнут жёлтым.</p>
+            <p>Внутри текста можно выделить <span class="highlight">важный фрагмент</span> с помощью дополнительного цвета 2. Цвет текста — #6A8D92, что гармонично связывает все элементы.</p>
+            <div class="meta" style="border-top-color: #6A8D92;">
+                <span>Основной · #0B3C49</span>
+                <span>Текст · #6A8D92</span>
+            </div>
+        </div>
+
+        <!-- Небольшая пояснительная строка -->
+        <p style="text-align: center; font-size: 0.9rem; color: #6A8D92; margin-top: 1rem; opacity: 0.8;">
+            Палитра из 5 цветов: основной, фон, текст, два дополнительных.<br>
+            Каждый цвет используется в соответствии со своим назначением.
+        </p>
+
+    </div>
+</body>
+</html>
+```
