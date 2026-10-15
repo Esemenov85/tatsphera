@@ -3,130 +3,573 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Татсфера · стажировочная площадка 2026 — загрузка…</title>
+<title>Татсфера — платформа управления данными Республики Татарстан</title>
+<meta name="description" content="Информационная система «Татсфера» — платформа полного цикла разработки аналитических решений: сбор данных из любых источников, хранение, модели ИИ, обработка и визуализация. Государственное управление на основе данных. ГКУ «Центр цифровой трансформации Республики Татарстан».">
+<link rel="canonical" href="https://tatsphera.ru/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Татсфера — платформа управления данными Республики Татарстан">
+<meta property="og:description" content="Платформа полного цикла разработки аналитических решений: сбор, хранение, модели ИИ, анализ и визуализация данных в конструкторе аналитических панелей.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="images/logo_UG_new.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --font-display: "Unbounded", Georgia, "Times New Roman", serif;
     --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
 
-    --main:     #0B3C49;
-    --bg:       #CBD2D0;
-    --text:     #6A8D92;
-    --accent1:  #731963;
-    --accent2:  #F0E100;
+    --main:    #0B3C49;
+    --bg:      #CBD2D0;
+    --text:    #6A8D92;
+    --accent1: #731963;
+    --accent2: #F0E100;
+    --paper:   #ffffff;
+    --line:    rgba(106, 141, 146, 0.28);
+    --line-2:  rgba(106, 141, 146, 0.5);
+
+    --wrap: 1200px;
+    --pad: clamp(20px, 4vw, 48px);
+    --sect: clamp(56px, 9vh, 108px);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  ::selection { background: var(--accent2); color: var(--main); }
 
   body {
     font-family: var(--font-body);
     background: var(--bg);
     color: var(--main);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    top: -20%; right: -10%;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(240, 225, 0, 0.18), transparent 60%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    bottom: -20%; left: -10%;
-    width: 450px; height: 450px;
-    background: radial-gradient(circle, rgba(115, 25, 99, 0.14), transparent 60%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
+  .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
 
-  .loader {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    animation: fadeIn 0.4s ease;
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: clamp(11px, 1.1vw, 13px);
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text); display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap;
   }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--accent1); flex: none; }
+  .on-dark .eyebrow { color: rgba(203,210,208,.8); }
+  .on-dark .eyebrow::before { background: var(--accent2); }
 
-  .loader__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--main);
-    letter-spacing: -0.02em;
+  h2.sect-title {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.12;
+    letter-spacing: -0.015em; text-wrap: balance;
+    margin: 0.5rem 0 0.85rem; max-width: 22em;
   }
+  .lede { color: var(--text); max-width: 46em; font-size: clamp(1rem, 1.3vw, 1.12rem); }
+  .lede strong { color: var(--main); font-weight: 700; }
+  .on-dark .lede { color: rgba(203,210,208,.82); }
+  .on-dark .lede strong { color: var(--accent2); }
+  .hl { background: var(--accent2); color: var(--main); padding: 0.03em 0.4em; border-radius: 30px; font-weight: 700; }
 
-  .loader__mark {
-    width: 48px; height: 48px;
-    background: var(--accent2);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0B3C49;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 800;
-    box-shadow: 0 8px 20px rgba(240, 225, 0, 0.35);
-  }
+  section { padding: var(--sect) 0; }
+  .on-dark { background: var(--main); color: var(--bg); }
+  .on-dark h2.sect-title { color: var(--bg); }
+  .on-accent { background: var(--accent1); color: var(--bg); }
+  .on-accent h2.sect-title { color: var(--accent2); }
+  .on-accent .eyebrow { color: rgba(203,210,208,.85); }
+  .on-accent .eyebrow::before { background: var(--accent2); }
 
-  .loader__spinner {
-    width: 36px; height: 36px;
-    border: 3px solid rgba(106, 141, 146, 0.25);
-    border-top-color: var(--accent2);
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
+  /* ================= header ================= */
+  .site-header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(11, 60, 73, 0.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(203,210,208,.14);
   }
+  .site-header .wrap { display: flex; align-items: center; gap: 1.1rem; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--bg); flex: none; }
+  .brand__mark { width: 34px; height: 34px; object-fit: contain; display: block; }
+  .brand__name { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; letter-spacing: -0.01em; }
+  .brand__sub { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(203,210,208,.55); display: none; }
+
+  .nav { display: flex; gap: 1.4rem; margin-left: auto; }
+  .nav a {
+    color: rgba(203,210,208,.85); text-decoration: none; font-size: .9rem; font-weight: 600;
+    padding: .3rem 0; border-bottom: 2px solid transparent; transition: color .18s ease, border-color .18s ease;
+  }
+  .nav a:hover { color: var(--accent2); border-color: var(--accent2); }
+
+  .header-right { display: flex; align-items: center; gap: 0.9rem; margin-left: 0.4rem; }
+  .header-emblem { width: 30px; height: 30px; object-fit: contain; display: block; opacity: .95; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: .5em; text-decoration: none;
+    border-radius: 40px; font-weight: 700; font-size: .92rem; line-height: 1;
+    padding: .72em 1.35em; border: 1.5px solid transparent; cursor: pointer;
+    transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    white-space: nowrap;
+  }
+  .btn:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn--accent { background: var(--accent2); color: var(--main); }
+  .btn--accent:hover { background: var(--accent1); color: var(--bg); }
+  .btn--ghost { border-color: rgba(203,210,208,.5); color: var(--bg); }
+  .btn--ghost:hover { border-color: var(--accent2); color: var(--accent2); }
+  .btn--dark { background: var(--main); color: var(--accent2); }
+  .btn--dark:hover { background: var(--accent1); color: var(--bg); }
+  .btn--outline-dark { border-color: var(--main); color: var(--main); }
+  .btn--outline-dark:hover { background: var(--main); color: var(--accent2); }
+
+  /* ================= hero ================= */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--main); color: var(--bg);
+    padding: clamp(48px, 7vh, 86px) 0 clamp(56px, 8vh, 104px);
+  }
+  .hero::before {
+    content: ""; position: absolute; top: -18%; right: -6%; width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(240,225,0,.16), transparent 62%); border-radius: 50%; pointer-events: none;
+  }
+  .hero::after {
+    content: ""; position: absolute; bottom: -22%; left: -8%; width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(115,25,99,.30), transparent 62%); border-radius: 50%; pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(2.3rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.02em;
+    margin: 1rem 0 0.35rem; text-wrap: balance;
+  }
+  .hero h1 .dot { color: var(--accent2); }
+  .hero h1 .sub { display: block; font-size: clamp(1.35rem, 2.9vw, 2.2rem); font-weight: 600; color: rgba(203,210,208,.92); letter-spacing: -0.01em; margin-top: .55rem; }
+  .hero-sub { font-size: clamp(1rem, 1.5vw, 1.18rem); max-width: 36em; color: rgba(203,210,208,.86); margin: 1.1rem 0 1.8rem; }
+  .hero-sub strong { color: var(--accent2); font-weight: 700; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-meta { margin-top: 1.9rem; display: flex; gap: 1.4rem; flex-wrap: wrap; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(203,210,208,.55); }
+
+  /* орбитальная сфера данных */
+  .sphere { position: relative; width: min(420px, 82vw); aspect-ratio: 1; margin: 0 auto; }
+  .sphere .core {
+    position: absolute; inset: 37%; border-radius: 50%; background: var(--accent1);
+    box-shadow: 0 0 0 12px rgba(115,25,99,.22), 0 0 60px rgba(115,25,99,.5);
+    display: grid; place-items: center; text-align: center; padding: 6%;
+  }
+  .sphere .core span { font-family: var(--font-mono); font-size: clamp(9px, 1.05vw, 12px); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent2); line-height: 1.3; }
+  .orbit { position: absolute; border-radius: 50%; border: 1px dashed rgba(203,210,208,.28); }
+  .orbit--1 { inset: 4%; }
+  .orbit--2 { inset: 18%; }
+  .orbit--3 { inset: 31%; }
+  .ring { position: absolute; inset: 0; animation: spin 52s linear infinite; }
+  .orbit--2 .ring { animation-duration: 74s; animation-direction: reverse; }
+  .orbit--3 .ring { animation-duration: 40s; }
+  .sat { position: absolute; transform: translate(-50%, -50%); }
+  .sat span {
+    display: block; white-space: nowrap;
+    background: rgba(203,210,208,.96); color: var(--main);
+    font-family: var(--font-mono); font-size: clamp(9px, .95vw, 11.5px); font-weight: 600;
+    padding: .32em .78em; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,.28);
+    animation: spin 52s linear infinite reverse;
+  }
+  .orbit--2 .sat span { animation-duration: 74s; animation-direction: normal; }
+  .orbit--3 .sat span { animation-duration: 40s; animation-direction: reverse; }
+  .sat--accent span { background: var(--accent2); }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  .loader__text {
-    font-size: 0.85rem;
-    color: var(--text);
-    font-weight: 600;
-    letter-spacing: 0.02em;
+  /* ================= метрики ================= */
+  .metrics { background: var(--main); padding: 0 0 clamp(48px, 7vh, 76px); }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(106,141,146,.6); border-top: 1px solid rgba(106,141,146,.6); }
+  .metric { background: var(--main); padding: 26px 22px 22px; }
+  .metric .num { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.9vw, 2.2rem); color: var(--accent2); display: block; line-height: 1.08; letter-spacing: -0.02em; }
+  .metric .cap { font-size: .85rem; color: rgba(203,210,208,.82); margin-top: 8px; display: block; }
+
+  /* ================= платформа ================= */
+  .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+  .pf-card {
+    background: rgba(255,255,255,.55); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .pf-card:hover { transform: translateY(-4px); border-color: var(--main); box-shadow: 0 14px 30px rgba(11,60,73,.1); }
+  .pf-card .tag {
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--bg); background: var(--accent1); padding: .3em .8em; border-radius: 30px; align-self: flex-start;
+  }
+  .pf-card h3 { font-size: 1.06rem; font-weight: 700; }
+  .pf-card p { font-size: .9rem; color: var(--text); }
+  .pf-card .stack { font-family: var(--font-mono); font-size: .72rem; color: var(--main); margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+
+  .caps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 26px; }
+  .cap-item { display: flex; gap: 16px; align-items: flex-start; background: rgba(255,255,255,.4); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+  .cap-item i {
+    flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    font-family: var(--font-mono); font-size: .8rem; font-weight: 700; font-style: normal;
+    background: var(--main); color: var(--accent2);
+  }
+  .cap-item:nth-child(even) i { background: var(--accent1); }
+  .cap-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+  .cap-item p { font-size: .9rem; color: var(--text); }
+
+  /* ================= кейсы ================= */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+  .case { border-radius: 16px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px; transition: transform .2s ease; }
+  .case:hover { transform: translateY(-4px); }
+  .case.c-yellow { background: var(--accent2); color: var(--main); }
+  .case.c-yellow .dom { color: var(--accent1); }
+  .case.c-purple { background: var(--accent1); color: var(--bg); }
+  .case.c-purple .dom { color: var(--accent2); }
+  .case.c-outline { background: transparent; border: 1px solid rgba(203,210,208,.4); color: var(--bg); }
+  .case.c-outline h3 { color: var(--accent2); }
+  .case .dom { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; opacity: .95; }
+  .case h3 { font-size: 1.02rem; font-weight: 700; }
+  .case p { font-size: .88rem; opacity: .92; }
+  .case .fact { margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: .74rem; font-weight: 600; border-top: 1px dashed currentColor; opacity: .95; }
+
+  /* ================= ценность ================= */
+  .val-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .val { background: rgba(255,255,255,.52); border: 1px solid var(--line); border-radius: 16px; padding: 22px 22px; }
+  .val i { display: block; font-family: var(--font-mono); font-size: .72rem; font-weight: 700; color: var(--accent1); letter-spacing: .1em; margin-bottom: 10px; }
+  .val h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .val p { font-size: .9rem; color: var(--text); }
+
+  .cc { margin-top: 34px; background: var(--main); color: var(--bg); border-radius: 18px; padding: clamp(24px, 3vw, 40px); display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: center; }
+  .cc h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.2rem, 2.2vw, 1.6rem); color: var(--accent2); margin-bottom: .6rem; }
+  .cc p { color: rgba(203,210,208,.85); font-size: .96rem; }
+  .cc ul { list-style: none; display: grid; gap: 12px; }
+  .cc li { position: relative; padding-left: 26px; font-size: .96rem; }
+  .cc li::before { content: ""; position: absolute; left: 0; top: .58em; width: 14px; height: 2px; background: var(--accent2); }
+  .cc li b { color: var(--accent2); }
+
+  /* ================= внедрение ================= */
+  .steps-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: st; }
+  .step { border: 1px solid rgba(203,210,208,.42); border-radius: 16px; padding: 24px; counter-increment: st; }
+  .step::before { content: "0" counter(st); font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--accent2); display: block; margin-bottom: 10px; }
+  .step h3 { font-size: .98rem; font-weight: 700; margin-bottom: 6px; }
+  .step p { font-size: .86rem; opacity: .88; }
+  .steps-note { margin-top: 26px; font-family: var(--font-mono); font-size: .8rem; color: var(--accent2); }
+
+  /* ================= footer ================= */
+  .site-footer { background: var(--main); color: var(--bg); padding: clamp(48px, 7vh, 76px) 0 34px; }
+  .foot-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: start; }
+  .foot-grid h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--accent2); line-height: 1.15; }
+  .foot-grid p.foot-lead { color: rgba(203,210,208,.85); margin-top: .8rem; max-width: 34em; }
+  .foot-contact { font-family: var(--font-mono); font-size: .95rem; line-height: 2.1; }
+  .foot-contact a { color: var(--bg); text-decoration: none; border-bottom: 1px dashed rgba(106,141,146,.7); }
+  .foot-contact a:hover { color: var(--accent2); border-color: var(--accent2); }
+  .foot-contact span { color: var(--text); }
+  .foot-logos { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 36px); margin-top: 22px; flex-wrap: wrap; }
+  .foot-logo { height: clamp(44px, 4.6vw, 58px); width: auto; display: block; }
+  .foot-meta { margin-top: 46px; padding-top: 20px; border-top: 1px solid rgba(106,141,146,.55); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--font-mono); font-size: .72rem; color: var(--text); }
+
+  /* ================= адаптив ================= */
+  @media (max-width: 1000px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .sphere { margin-top: 22px; }
+    .pf-grid, .case-grid, .steps-grid, .val-grid { grid-template-columns: repeat(2, 1fr); }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .nav { display: none; }
+    .header-right { margin-left: auto; }
+  }
+  @media (max-width: 640px) {
+    .pf-grid, .case-grid, .val-grid, .steps-grid, .caps, .metrics-grid { grid-template-columns: 1fr; }
+    .cc { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .sphere { width: min(300px, 78vw); }
+    .brand__sub { display: none; }
+  }
+  @media (max-width: 460px) {
+    .brand__name { font-size: 1rem; }
+    .header-emblem { display: none; }
+    .btn { font-size: .86rem; padding: .68em 1.1em; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ring, .sat span { animation: none !important; }
+    .pf-card, .case, .btn { transition: none !important; }
+  }
+
+  @media print {
+    .site-header, .sphere { display: none !important; }
+    .on-dark, .on-accent, .hero, .site-footer { background: #fff !important; color: #000 !important; }
   }
 </style>
 </head>
 <body>
 
-  <div class="loader">
-    <div class="loader__logo">
-      <span class="loader__mark">ТС</span>
-      <span>Татсфера</span>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img class="brand__mark" src="images/logo_UG_new.png" alt="Знак Центра цифровой трансформации РТ">
+      <span class="brand__name">Татсфера</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#platform">О платформе</a>
+      <a href="#cases">Решения</a>
+      <a href="#value">Ценность</a>
+      <a href="#steps">Внедрение</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <img class="header-emblem" src="images/Coat_of_arms_of_Tatarstan.svg.png" alt="Герб Республики Татарстан">
     </div>
-    <div class="loader__spinner"></div>
-    <div class="loader__text">Загружаем…</div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero on-dark">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">ГКУ «Центр цифровой трансформации РТ» · Республика Татарстан</p>
+        <h1>Татсфера<span class="dot">.</span>
+          <span class="sub">Управление регионом на&nbsp;основе данных</span>
+        </h1>
+        <p class="hero-sub">Платформа полного цикла разработки аналитических решений: сбор данных с&nbsp;любых источников, хранение структурированных и&nbsp;неструктурированных форматов, разработка моделей искусственного интеллекта, обработка и&nbsp;<strong>визуализация в&nbsp;конструкторе аналитических панелей</strong> — в&nbsp;режиме реального времени.</p>
+        <div class="hero-cta">
+          <a class="btn btn--accent" href="login.html">Презентация стажировочной площадки</a>
+          <a class="btn btn--ghost" href="#cases">Прикладные решения</a>
+        </div>
+        <div class="hero-meta">
+          <span>Полный цикл: сбор → хранение → ИИ → визуализация</span>
+        </div>
+      </div>
+
+      <div class="sphere" aria-hidden="true">
+        <div class="orbit orbit--1"><div class="ring">
+          <div class="sat" style="left:28%;top:11.9%"><span>Госуслуги РТ</span></div>
+          <div class="sat" style="left:72%;top:11.9%"><span>Народный контроль</span></div>
+          <div class="sat" style="left:94%;top:50%"><span>Обращения граждан</span></div>
+          <div class="sat sat--accent" style="left:72%;top:88.1%"><span>Аналитика товарных потоков</span></div>
+          <div class="sat" style="left:28%;top:88.1%"><span>ФНС · кассовые чеки</span></div>
+          <div class="sat" style="left:6%;top:50%"><span>ГИС МЖФ</span></div>
+        </div></div>
+        <div class="orbit orbit--2"><div class="ring">
+          <div class="sat" style="left:50%;top:18%"><span>Электронная очередь</span></div>
+          <div class="sat" style="left:50%;top:82%"><span>СМЭВ</span></div>
+        </div></div>
+        <div class="orbit orbit--3"></div>
+        <div class="core"><span>Единое окно<br>данных</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METRICS ================= -->
+  <div class="metrics on-dark">
+    <div class="wrap">
+      <div class="metrics-grid">
+        <div class="metric"><span class="num">130 млн</span><span class="cap">кассовых чеков в&nbsp;месяц поступает по&nbsp;данным ВПД ФНС России</span></div>
+        <div class="metric"><span class="num">5,4 млрд</span><span class="cap">товарных позиций в&nbsp;год — чеки, выпущенные на&nbsp;территории республики</span></div>
+        <div class="metric"><span class="num">19 млрд</span><span class="cap">записей в&nbsp;хранилище данных платформы</span></div>
+        <div class="metric"><span class="num">98,75 %</span><span class="cap">удовлетворённость слушателей программы повышения квалификации</span></div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    // Роутер авторизацией не занимается — это делает login.html.
-    // Он просто отправляет пользователя на страницу входа, а login.html
-    // сам решит: показать форму или сразу открыть deck.html.
-    (function () {
-      setTimeout(function () {
-        window.location.replace('login.html');
-      }, 250);
-    })();
-  </script>
+  <!-- ================= ПЛАТФОРМА ================= -->
+  <section id="platform">
+    <div class="wrap">
+      <p class="eyebrow">Что это</p>
+      <h2 class="sect-title">Одна платформа вместо десятка разрозненных систем</h2>
+      <p class="lede">Данные органов власти РТ разрознены, доступ к&nbsp;ним сложен, а&nbsp;управленческая отчётность формируется долго. Татсфера объединяет весь путь данных — <strong>от&nbsp;извлечения из&nbsp;источника до&nbsp;дэшборда на&nbsp;экране руководителя</strong> — и&nbsp;поддерживает форматы <span class="hl">CSV, JSON, XML, AVRO, ORC, Parquet</span> и&nbsp;подключение к&nbsp;PostgreSQL, MySQL, Hive, Greenplum, Dremio и&nbsp;другим СУБД.</p>
+
+      <div class="pf-grid">
+        <div class="pf-card">
+          <span class="tag">Фабрика данных</span>
+          <h3>Извлечение и&nbsp;преобразование</h3>
+          <p>Пакетный и&nbsp;потоковый приём данных из&nbsp;региональных и&nbsp;федеральных ИС, оркестрация процессов, каталог данных и&nbsp;единый бизнес-глоссарий показателей.</p>
+          <div class="stack">Apache Airflow · NiFi · SFTP · адаптер СМЭВ</div>
+        </div>
+        <div class="pf-card">
+          <span class="tag">Хранение</span>
+          <h3>Озеро данных и&nbsp;аналитическая СУБД</h3>
+          <p>Хранение данных в&nbsp;исходном формате в&nbsp;распределённой файловой системе и&nbsp;массово-параллельная обработка больших объёмов с&nbsp;шифрованием данных и&nbsp;соединений.</p>
+          <div class="stack">Apache Hadoop · Arenadata DB · Spark</div>
+        </div>
+        <div class="pf-card">
+          <span class="tag">Виртуализация</span>
+          <h3>Данные без перемещения</h3>
+          <p>Единая точка доступа к&nbsp;региональным данным без необходимости физически переносить их&nbsp;в&nbsp;централизованное хранилище. Доступ по&nbsp;JDBC/ODBC.</p>
+          <div class="stack">Dremio · Apache Drill</div>
+        </div>
+        <div class="pf-card">
+          <span class="tag">Каталог</span>
+          <h3>Каталог данных и&nbsp;бизнес-глоссарий</h3>
+          <p>Автоматическая классификация источников, интеллектуальный поиск по&nbsp;всему ландшафту, методология расчёта показателей и&nbsp;владелец у&nbsp;каждого атрибута.</p>
+          <div class="stack">Informatica EDC · Informatica Axon</div>
+        </div>
+        <div class="pf-card">
+          <span class="tag">Аналитика</span>
+          <h3>Конструктор отчётов и&nbsp;DS-блокноты</h3>
+          <p>Дэшборды для смартфона и&nbsp;больших мониторов, виджеты по&nbsp;прямой ссылке, выгрузка в&nbsp;Excel/CSV/PDF. Блокноты на&nbsp;Python, Java и&nbsp;Scala с&nbsp;GPU-узлами для ML.</p>
+          <div class="stack">Apache Superset · Apache Zeppelin</div>
+        </div>
+        <div class="pf-card">
+          <span class="tag">Инфраструктура</span>
+          <h3>Оркестрация, мониторинг и&nbsp;ИБ</h3>
+          <p>Управление кластером через веб-интерфейс, контроль жизнеспособности компонентов, ролевая модель доступа, SAML&nbsp;2.0 и&nbsp;OpenID&nbsp;Connect.</p>
+          <div class="stack">Arenadata CM · Prometheus + Grafana · Avanpost FAM · ЕЦП «Ак Барс»</div>
+        </div>
+      </div>
+
+      <div class="caps">
+        <div class="cap-item"><i>01</i><div><h3>Сбор и обработка любых видов данных</h3><p>Структурированные и&nbsp;неструктурированные данные по&nbsp;известным протоколам обмена; форматы CSV, JSON, XML, AVRO, ORC, Parquet.</p></div></div>
+        <div class="cap-item"><i>02</i><div><h3>Единое окно и self-service</h3><p>Виртуализация данных скрывает гетерогенность источников и&nbsp;сложность ИТ-ландшафта — пользователь работает с&nbsp;данными из&nbsp;одной точки.</p></div></div>
+        <div class="cap-item"><i>03</i><div><h3>Модели данных «как есть» и «как должно быть»</h3><p>Физическая, логическая и&nbsp;концептуальная модели предметных областей; формирование датасетов и&nbsp;дэшбордов.</p></div></div>
+        <div class="cap-item"><i>04</i><div><h3>Разработка моделей искусственного интеллекта</h3><p>Блокноты на&nbsp;Python, Java, Scala и&nbsp;подключение вычислительных узлов с&nbsp;графическими процессорами для обучения моделей.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= КЕЙСЫ ================= -->
+  <section class="on-dark" id="cases">
+    <div class="wrap">
+      <p class="eyebrow">Прикладные решения</p>
+      <h2 class="sect-title">Реальные задачи ведомств, решённые на данных платформы</h2>
+      <p class="lede">Каждое приложение собирается на&nbsp;конструкторе и&nbsp;<strong>работает с&nbsp;одной и&nbsp;той же цифрой</strong> для всех уровней управления — от&nbsp;министерства до&nbsp;главы района.</p>
+
+      <div class="case-grid">
+        <article class="case c-yellow">
+          <span class="dom">Минпромторг РТ</span>
+          <h3>Мониторинг розничной торговли</h3>
+          <p>Данные кассовых чеков ФНС: динамика цен по&nbsp;брендам, сетям и&nbsp;муниципалитетам, оборот и&nbsp;объёмы продаж, присутствие местных товаропроизводителей на&nbsp;полке.</p>
+          <div class="fact">52 категории социально значимых товаров</div>
+        </article>
+        <article class="case c-purple">
+          <span class="dom">Минэкономики РТ · МСП</span>
+          <h3>Аналитика товарных потоков</h3>
+          <p>Потребность в&nbsp;товарах по&nbsp;муниципалитетам, товары, ввозимые из&nbsp;соседних регионов, потенциальные конкуренты, промышленные парки, меры господдержки и&nbsp;продовольственный баланс.</p>
+          <div class="fact">Инвестиционные ниши и рынки сбыта</div>
+        </article>
+        <article class="case c-outline">
+          <span class="dom">УПЧ в РТ · Народный контроль</span>
+          <h3>Анализ обращений граждан</h3>
+          <p>Тепловая карта решённых заявок, статусы и&nbsp;категоризация, муниципальный разрез, сезонность и&nbsp;прямой переход к&nbsp;заявке в&nbsp;исходной системе.</p>
+          <div class="fact">Контроль сроков и ненормативных отказов</div>
+        </article>
+        <article class="case c-outline">
+          <span class="dom">Минстрой ЖКХ РТ · ГИС МЖФ</span>
+          <h3>Аналитика задолженности ЖКХ</h3>
+          <p>Тепловая карта долга по&nbsp;муниципалитетам и&nbsp;управляющим компаниям, динамика начислений и&nbsp;оплат по&nbsp;месяцам, разрезы до&nbsp;дома, лицевого счёта и&nbsp;услуги.</p>
+          <div class="fact">По данным ГИС МЖФ РТ</div>
+        </article>
+        <article class="case c-purple">
+          <span class="dom">Минздрав РТ</span>
+          <h3>Доступность электронных талонов</h3>
+          <p>Анализ электронной очереди здравоохранения: нехватка специалистов по&nbsp;учреждениям, недоступные для населения услуги, контроль своевременности размещения талонов.</p>
+          <div class="fact">Формат «Было / Стало»</div>
+        </article>
+        <article class="case c-yellow">
+          <span class="dom">Главы муниципальных районов</span>
+          <h3>Дэшборд Главы района</h3>
+          <p>Рабочее место руководителя: здравоохранение, торговля, туризм, обращения жителей, ЖКХ и&nbsp;социально-экономическое развитие — на&nbsp;одном экране.</p>
+          <div class="fact">6 доменов · «одна и та же цифра»</div>
+        </article>
+        <article class="case c-outline">
+          <span class="dom">Земельно-имущественные отношения</span>
+          <h3>Мониторинг земельных отношений</h3>
+          <p>Отображение информации с&nbsp;координатной привязкой: кластеры, точки и&nbsp;полигоны на&nbsp;картографической подложке для управления земельным фондом.</p>
+          <div class="fact">Геовизуализация на подложке</div>
+        </article>
+        <article class="case c-purple">
+          <span class="dom">Минтруд РТ</span>
+          <h3>Интеллектуальный анализ процессов</h3>
+          <p>Process Mining услуги «Установление статуса многодетной семьи» по&nbsp;всем муниципалитетам: где время оказания выше среднего и&nbsp;на&nbsp;каких этапах теряется время.</p>
+          <div class="fact">98 % времени — этап «Проверка заявления»</div>
+        </article>
+        <article class="case c-outline">
+          <span class="dom">Социально значимые товары</span>
+          <h3>Мониторинг цен</h3>
+          <p>Динамика потребительских цен по&nbsp;регионам ПФО и&nbsp;муниципалитетам с&nbsp;разрезом по&nbsp;категориям — от&nbsp;продовольственных до&nbsp;непродовольственных товаров.</p>
+          <div class="fact">Обновление данных — ежедневно</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ЦЕННОСТЬ ================= -->
+  <section id="value">
+    <div class="wrap">
+      <p class="eyebrow">Ценность для региона</p>
+      <h2 class="sect-title">Что получает государство, работая на данных</h2>
+      <p class="lede">Татсфера — это <strong>«данные как услуга»</strong>: пользователь быстро получает доступ к&nbsp;данным, анализирует их&nbsp;и&nbsp;извлекает полезную информацию — без запросов, согласований и&nbsp;ручных выгрузок.</p>
+
+      <div class="val-grid">
+        <div class="val"><i>01</i><h3>Единое окно доступа</h3><p>Разрозненные данные ИС республики и&nbsp;федеральных систем — из&nbsp;одной точки, в&nbsp;режиме реального времени.</p></div>
+        <div class="val"><i>02</i><h3>Скорость отчётности</h3><p>Управленческие отчёты формируются конструктором, а&nbsp;не ручной обработкой выгрузок.</p></div>
+        <div class="val"><i>03</i><h3>Снижение затрат</h3><p>Общая инфраструктура вместо дублирующих хранилищ в&nbsp;каждом ведомстве.</p></div>
+        <div class="val"><i>04</i><h3>Защищённость данных</h3><p>Ролевая модель, минимизация полномочий, хеширование паролей, логирование всех действий.</p></div>
+        <div class="val"><i>05</i><h3>Интеграция и ИИ</h3><p>Совместимость с&nbsp;технологиями искусственного интеллекта и&nbsp;открытый стек для сторонних команд.</p></div>
+        <div class="val"><i>06</i><h3>Люди и компетенции</h3><p>Центр компетенций по&nbsp;управлению данными: обучение госслужащих, архитектурный надзор, каталогизация.</p></div>
+      </div>
+
+      <div class="cc">
+        <div>
+          <h3>Центр компетенций по управлению данными</h3>
+          <p>На базе ГКУ «Центр цифровой трансформации» сформирован Центр компетенций, который сопровождает ведомства на&nbsp;всём пути работы с&nbsp;данными.</p>
+        </div>
+        <ul>
+          <li><b>Архитектурный надзор</b> — единые правила и&nbsp;стандарты данных</li>
+          <li><b>Каталогизация данных</b> — учёт и&nbsp;классификация источников</li>
+          <li><b>Разработка прикладных решений</b> — дэшборды под задачи ведомств</li>
+          <li><b>Повышение квалификации госслужащих</b> — обучение работе с&nbsp;данными</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ВНЕДРЕНИЕ ================= -->
+  <section class="on-accent" id="steps">
+    <div class="wrap">
+      <p class="eyebrow">Внедрение</p>
+      <h2 class="sect-title">Как запустить прикладной проект</h2>
+      <p class="lede">Технологический стек платформы открыт и&nbsp;стандартен: к&nbsp;проектам привлекаются команды из&nbsp;любого региона без дополнительного обучения, а&nbsp;конкуренция подрядчиков снижает стоимость работ.</p>
+
+      <div class="steps-grid">
+        <div class="step"><h3>Источники данных</h3><p>Определяем перечень информационных систем и&nbsp;файлов, из&nbsp;которых собираются показатели.</p></div>
+        <div class="step"><h3>Мощности и размещение</h3><p>Расчёт вычислительных ресурсов и&nbsp;выбор площадки: облако или оборудование заказчика.</p></div>
+        <div class="step"><h3>Соглашение о взаимодействии</h3><p>Договорённости с&nbsp;поставщиками данных о&nbsp;составе и&nbsp;порядке передачи.</p></div>
+        <div class="step"><h3>Пользователи и права</h3><p>Круг пользователей, ролевая модель и&nbsp;разграничение доступа к&nbsp;данным.</p></div>
+        <div class="step"><h3>Обучение</h3><p>Подготовка специалистов: SQL, дата-лаборатория, конструктор отчётов.</p></div>
+        <div class="step"><h3>Запуск в эксплуатацию</h3><p>Выход приложений в&nbsp;эксплуатацию и&nbsp;передача сопровождения.</p></div>
+      </div>
+      <p class="steps-note">Роли в проекте: ЦЦТ РТ → функциональный заказчик → подрядчик.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer on-dark" id="contacts">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="eyebrow">Контакты</p>
+        <h2>Данные — новая нефть региона</h2>
+        <p class="foot-lead">Информационная система «Татсфера» разработана ГКУ «Центр цифровой трансформации Республики Татарстан». Присоединяйтесь к&nbsp;платформе — начнём с&nbsp;перечня ваших источников данных.</p>
+        <div class="foot-logos">
+          <img class="foot-logo" src="images/Coat_of_arms_of_Tatarstan.svg.png" alt="Герб Республики Татарстан">
+          <img class="foot-logo" src="images/mincifry-rt.png" alt="Министерство цифрового развития Республики Татарстан">
+          <img class="foot-logo" src="images/logo_UG_new.png" alt="Центр цифровой трансформации Республики Татарстан">
+          <img class="foot-logo" src="images/tatsphera-badge-accent.png" alt="Работает на Татсфере">
+        </div>
+      </div>
+      <div class="foot-contact">
+        <a href="mailto:transformer@tatar.ru">transformer@tatar.ru</a><br>
+        <a href="tel:+78435280890">+7 (843) 528-08-90</a><br>
+        <span>Казань · Республика Татарстан</span>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>Информационная система «Татсфера»</span>
+      <span>Государственное управление на основе данных</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
