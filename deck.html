@@ -446,6 +446,19 @@
                 white-space: nowrap; }
   .deck-hints.faded { opacity: 0; pointer-events: none; }
 
+  .deck-home {
+    position: fixed; bottom: clamp(12px, 2vh, 24px); left: clamp(14px, 2vw, 28px);
+    z-index: 100; display: inline-flex; align-items: center; gap: .45em;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    color: var(--c-main); background: var(--c-accent2);
+    padding: 6px 14px; border-radius: 20px; text-decoration: none;
+    box-shadow: 0 2px 10px rgba(11, 60, 73, 0.28); white-space: nowrap;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  }
+  .deck-home::before { content: "←"; font-size: 13px; line-height: 1; }
+  .deck-home:hover { background: var(--c-accent1); color: var(--c-bg); transform: translateY(-1px); }
+  .deck-home:focus-visible { outline: 2px solid var(--c-accent2); outline-offset: 3px; }
+
   /* ---- Адаптив по высоте экрана: десктоп разных разрешений, планшеты ---- */
   @media (max-height: 880px) {
     .slide { padding: clamp(26px, 4.4vh, 56px) clamp(32px, 6vw, 92px);
@@ -526,7 +539,7 @@
     .slide:last-child { page-break-after: auto; break-after: auto; }
     .slide .in { opacity: 1 !important; transform: none !important; }
     .slide .fragment { opacity: 1 !important; }
-    .deck-progress, .deck-counter, .deck-hints { display: none !important; }
+    .deck-progress, .deck-counter, .deck-hints, .deck-home { display: none !important; }
   }
 
   /* ============ СЛАЙД-ДАШБОРД (приложение к деке) ============ */
@@ -2827,6 +2840,12 @@
     this.bar = mk("deck-progress");
     this.counter = mk("deck-counter");
     this.hints = mk("deck-hints", "← → или пробел — листать · цифры + Enter — к слайду · Ctrl+P — PDF");
+    // Кнопка возврата на главную страницу — на каждом слайде
+    var home = document.createElement("a");
+    home.className = "deck-home";
+    home.href = "index.html";
+    home.textContent = "На главную";
+    document.body.appendChild(home);
     setTimeout(function () { self.hints.classList.add("faded"); }, 4000);
   };
   Deck.prototype.bind = function () {
